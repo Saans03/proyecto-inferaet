@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr287oyp3wxb4"]
+
+[ext_resource type="Texture2D" uid="uid://bct050nyntasy" path="res://Texturas/PantallaInicio/70fc5c22-d5d2-444c-8d4b-ec6d9fa97a67.jpg" id="1_4nh4k"]
+[ext_resource type="Script" path="res://gameover.gd" id="1_tpdqf"]
+
+[node name="gameover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpdqf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4554031, 1.0769255e-06, 2.1658838e-07, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4nh4k")
+
+[node name="Button" type="Button" parent="ColorRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -168.0
+offset_right = 83.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Salir"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+
+[connection signal="pressed" from="ColorRect/TextureRect/Button" to="." method="_on_button_pressed"]

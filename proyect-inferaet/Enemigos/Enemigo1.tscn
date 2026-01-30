@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvnmr4lg0hb8j"]
+
+[ext_resource type="Script" uid="uid://biwwp2uigq8ef" path="res://Enemigos/Enemigo1.gd" id="1_vcfs8"]
+[ext_resource type="Texture2D" uid="uid://cwfl5yh106jsy" path="res://Texturas/Personaje/frameEnemy2.png" id="2_vcfs8"]
+[ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/hurtbox.tscn" id="3_khiip"]
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/hitbox.tscn" id="4_7gol1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ij6vw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vcfs8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfs8"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khiip"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4h4y"]
+size = Vector2(16, 18)
+
+[node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_vcfs8")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ij6vw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vcfs8")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_khiip")]
+visible = false
+collision_layer = 8
+collision_mask = 8
+HurtBoxType = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_khiip")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_7gol1")]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_w4h4y")
+
+[connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
+
+[editable path="HurtBox"]
+[editable path="Hitbox"]

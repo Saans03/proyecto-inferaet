@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn3y4eppc4nk"]
+
+[ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/Enemigo1.tscn" id="1_s3yny"]
+[ext_resource type="Texture2D" uid="uid://f763x5dftjl4" path="res://Texturas/Mapas/chess.png" id="1_uss6l"]
+[ext_resource type="PackedScene" uid="uid://cdb65b23ty00f" path="res://Personaje/player.tscn" id="2_uss6l"]
+[ext_resource type="Script" uid="uid://crv0mkj1fyfn1" path="res://Utilidad/stats_component.gd" id="4_1gg8p"]
+[ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Utilidad/stats_personaje.gd" id="5_ovbjr"]
+
+[sub_resource type="Resource" id="Resource_ovbjr"]
+script = ExtResource("5_ovbjr")
+max_health = 300
+speed = 200.0
+metadata/_custom_type_script = "uid://cgbkt2ernclb5"
+
+[node name="Mapa" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_uss6l")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="Player" parent="." instance=ExtResource("2_uss6l")]
+
+[node name="StatsComponent" parent="Player" index="3"]
+stats_base = SubResource("Resource_ovbjr")
+
+[node name="Enemy" parent="." instance=ExtResource("1_s3yny")]
+position = Vector2(317, 64)
+script = ExtResource("4_1gg8p")
+stats_base = null
+
+[editable path="Player"]
+[editable path="Player/HurtBox"]
+[editable path="Enemy"]
+[editable path="Enemy/HurtBox"]
+[editable path="Enemy/Hitbox"]
