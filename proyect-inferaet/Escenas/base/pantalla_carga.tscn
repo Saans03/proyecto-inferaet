@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://bdiovm7nndnar"]
+
+[ext_resource type="Script" uid="uid://bjrmrsloygdxc" path="res://Escenas/Scripts/pantalla_carga.gd" id="1_xebw4"]
+[ext_resource type="Texture2D" uid="uid://1hsijphd3ouh" path="res://Escenas/texturas/fondos/imagen2.png" id="2_aahbd"]
+[ext_resource type="Script" uid="uid://ddslmi6fw5dbx" path="res://Escenas/Scripts/label.gd" id="3_b5qvd"]
+[ext_resource type="Texture2D" uid="uid://d27b6c4l1j7wf" path="res://Escenas/texturas/ishmael/fish-groove_100ms_2.png" id="4_holed"]
+[ext_resource type="Texture2D" uid="uid://hk2lyc7pd5at" path="res://Escenas/texturas/ishmael/fish-groove_100ms_3.png" id="5_fema8"]
+[ext_resource type="Texture2D" uid="uid://bealrbaodwag3" path="res://Escenas/texturas/ishmael/fish-groove_100ms_4.png" id="6_36duu"]
+[ext_resource type="Texture2D" uid="uid://bmnpjlwjlvg78" path="res://Escenas/texturas/ishmael/fish-groove_100ms_5.png" id="7_nn3sg"]
+[ext_resource type="Texture2D" uid="uid://c52umtrlgxc0a" path="res://Escenas/texturas/ishmael/fish-groove_100ms_6.png" id="8_uicpd"]
+[ext_resource type="Texture2D" uid="uid://b2k57c0bjmhl3" path="res://Escenas/texturas/ishmael/fish-groove_100ms_7.png" id="9_cccpm"]
+[ext_resource type="Texture2D" uid="uid://vfm5ua8ks61n" path="res://Escenas/texturas/ishmael/fish-groove_100ms_9.png" id="10_o34dg"]
+[ext_resource type="Texture2D" uid="uid://c6iyfgb5dc032" path="res://Escenas/texturas/ishmael/fish-groove_100ms_10.png" id="11_3l7so"]
+[ext_resource type="Texture2D" uid="uid://byah5ka5be5s8" path="res://Escenas/texturas/ishmael/fish-groove_100ms_11.png" id="12_iafw6"]
+[ext_resource type="Texture2D" uid="uid://c4badpo6s8skn" path="res://Escenas/texturas/ishmael/fish-groove_100ms_12.png" id="13_kku08"]
+[ext_resource type="Texture2D" uid="uid://hjj5k2ridxgd" path="res://Escenas/texturas/ishmael/fish-groove_100ms_13.png" id="14_1ra54"]
+[ext_resource type="Texture2D" uid="uid://v01d1axbij6i" path="res://Escenas/texturas/ishmael/fish-groove_100ms_14.png" id="15_phce2"]
+[ext_resource type="Texture2D" uid="uid://ctinkuxbp8avw" path="res://Escenas/texturas/ishmael/fish-groove_200ms_1.png" id="16_5hnax"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbmcd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_holed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fema8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_36duu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nn3sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uicpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cccpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o34dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3l7so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iafw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kku08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1ra54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_phce2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5hnax")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="PantallaCarga" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = -5.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xebw4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aahbd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9254902, 0, 0.13725491, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_b5qvd")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(571, 356)
+sprite_frames = SubResource("SpriteFrames_pbmcd")
+autoplay = "default"
+frame_progress = 0.05713116
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

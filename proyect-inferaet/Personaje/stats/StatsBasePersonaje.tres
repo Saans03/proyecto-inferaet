@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="StatsBasePersonaje" load_steps=2 format=3 uid="uid://be06s4lqmkviu"]
+
+[ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Personaje/stats/stats_personaje.gd" id="1_bc8lw"]
+
+[resource]
+script = ExtResource("1_bc8lw")
+speed = 150.0
+metadata/_custom_type_script = "uid://cgbkt2ernclb5"

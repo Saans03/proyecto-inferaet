@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="ProyectPurgatorium"
-run/main_scene="uid://72u1hba65ycl"
+run/main_scene="uid://d0dtnmrnqheaw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
-SceneManager="*res://Utilidad/SceneManager.gd"
+SceneManager="*res://Escenas/Scripts/SceneManager.gd"
 
 [display]
 

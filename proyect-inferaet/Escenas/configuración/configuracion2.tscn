@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://tjasubulboia"]
+
+[ext_resource type="Script" uid="uid://44yj5qps067q" path="res://Escenas/Scripts/configuracion_1.gd" id="1_u6msr"]
+[ext_resource type="Texture2D" uid="uid://duwp3c365f83l" path="res://Escenas/texturas/fondos/Panorama transmitido por la sangre _ r_bloodborne.png" id="2_ruw7e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tgcr"]
+draw_center = false
+
+[node name="Configuracion1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6msr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4117469, 0.000117150244, 0.411841, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ruw7e")
+expand_mode = 1
+
+[node name="Salir" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tgcr")
+text = "Salir"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -282.0
+offset_right = 282.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Controles" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Controles"
+
+[node name="Gráficos" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Gráficos"
+
+[node name="Jugabilidad" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Jugabilidad"
+
+[node name="Sistema" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Sistema"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "graficos"
+
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="HBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="HBoxContainer/Gráficos" to="." method="_on_gráficos_pressed"]
+[connection signal="pressed" from="HBoxContainer/Jugabilidad" to="." method="_on_jugabilidad_pressed"]
+[connection signal="pressed" from="HBoxContainer/Sistema" to="." method="_on_sistema_pressed"]
