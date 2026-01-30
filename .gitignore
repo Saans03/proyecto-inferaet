@@ -1,0 +1,10 @@
+# Godot
+.import/
+.export/
+*.translation
+*.mono/
+mono_crash.*.json
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
