@@ -12,7 +12,9 @@ func _physics_process(_delta):
 
 
 func _on_hurt_box_received_damage(damage):
-	print("hola")
 	hp -= damage
 	if hp <= 0 :
 		queue_free()
+		
+func _ready():
+	add_to_group("enemy")

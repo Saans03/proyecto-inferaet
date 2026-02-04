@@ -26,3 +26,4 @@ func _on_hurt_box_received_damage(damage):
 	health_changed.emit()
 	if stats.current_health <= 0:
 		SceneManager.change_screen("res://Escenas/base/gameover.tscn")
+		
