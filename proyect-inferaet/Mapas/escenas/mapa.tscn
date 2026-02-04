@@ -32,12 +32,13 @@ region_rect = Rect2(0, 0, 4000, 4000)
 collision_layer = 2
 collision_mask = 2
 
-[node name="MenuPausa" parent="Player/Camera2D" index="0" instance=ExtResource("4_iywlr")]
-visible = false
-offset_left = -108.0
-offset_top = -72.0
-offset_right = -108.0
-offset_bottom = -72.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" index="0"]
+
+[node name="MenuPausa" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_iywlr")]
+offset_left = 382.00006
+offset_top = 279.0
+offset_right = 186.03442
+offset_bottom = 113.88019
 scale = Vector2(2.5004387, 2.1257293)
 script = ExtResource("5_37ejg")
 
@@ -71,9 +72,9 @@ texture_progress = ExtResource("10_xdpc2")
 script = ExtResource("11_rh4xi")
 player = NodePath("../../Player")
 
-[connection signal="pressed" from="Player/Camera2D/MenuPausa/MarginContainer/VBoxContainer/Continuar" to="Player/Camera2D/MenuPausa" method="_on_continuar_pressed"]
-[connection signal="pressed" from="Player/Camera2D/MenuPausa/MarginContainer/VBoxContainer/Salir" to="Player/Camera2D/MenuPausa" method="_on_salir_pressed"]
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Continuar" to="Player/Camera2D/CanvasLayer/MenuPausa" method="_on_continuar_pressed"]
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Salir" to="Player/Camera2D/CanvasLayer/MenuPausa" method="_on_salir_pressed"]
 
 [editable path="Player"]
-[editable path="Player/Camera2D/MenuPausa"]
+[editable path="Player/Camera2D/CanvasLayer/MenuPausa"]
 [editable path="Player/HurtBox"]

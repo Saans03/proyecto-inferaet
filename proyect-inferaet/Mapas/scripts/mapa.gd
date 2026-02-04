@@ -1,7 +1,12 @@
 extends Node2D
 
-@onready var menuPausa = $Player/Camera2D/MenuPausa
+@onready var menuPausa = $Player/Camera2D/CanvasLayer/MenuPausa
 var pausa = false
+
+func _ready():
+	Engine.time_scale = 1
+	pausa = false
+	menuPausa.hide()
 
 func _process(delta):
 	if Input.is_action_just_pressed("escapeMenu"):

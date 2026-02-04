@@ -1,10 +1,11 @@
 extends Node
 
-func change_screen(path: String):
+func change_screen(path : String):
+	Engine.time_scale = 1
+	get_tree().paused = false
 	get_tree().change_scene_to_file(path)
-
-func change_packed_screen(packed : PackedScene):
-	get_tree().change_scene_to_packed(packed)
 	
-func paused_scene() :
-	get_tree().paused = true
+func change_packed_screen(path : PackedScene):
+	Engine.time_scale = 1
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(path)
