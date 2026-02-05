@@ -71,9 +71,6 @@ func _attack():
 	attacking = false
 
 
-# -------------------------
-# BUSCAR ENEMIGO
-# -------------------------
 func _find_closest_enemy():
 
 	var player: Player = get_parent()
