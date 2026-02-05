@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0dtnmrnqheaw"]
+[gd_scene load_steps=11 format=3 uid="uid://d0dtnmrnqheaw"]
 
 [ext_resource type="Script" uid="uid://bsro832w2eag6" path="res://Escenas/Scripts/menu.gd" id="1_7m3vj"]
 [ext_resource type="Texture2D" uid="uid://nltta3mao33k" path="res://Escenas/texturas/fondos/imagen1.jpg" id="2_l78xl"]
-[ext_resource type="Texture2D" uid="uid://bh4308ujak0bp" path="res://Escenas/texturas/titulo/INFERAET1.png" id="3_q6gr2"]
+[ext_resource type="Texture2D" uid="uid://crccg32llybvf" path="res://Escenas/texturas/titulo/INFERAET1 1.png" id="3_q6gr2"]
+[ext_resource type="Texture2D" uid="uid://ou50gqhsarx3" path="res://Escenas/texturas/titulo/INFERAET2.png" id="4_megjb"]
+[ext_resource type="Texture2D" uid="uid://cj2ofxkgxlemv" path="res://Escenas/texturas/titulo/INFERAET3.png" id="5_yj7i3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
 bg_color = Color(0, 0, 0, 1)
@@ -45,6 +47,23 @@ expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtuqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q6gr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_megjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yj7i3")
+}],
+"loop": true,
+"name": &"titulo",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -113,19 +132,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ytr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ecwwl")
 text = "Salir"
 
-[node name="Titulo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -259.5
-offset_right = 259.5
-offset_bottom = 302.0
-grow_horizontal = 2
-scale = Vector2(1, 0.97727275)
-texture = ExtResource("3_q6gr2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(573, 358)
+sprite_frames = SubResource("SpriteFrames_vtuqf")
+animation = &"titulo"
+frame_progress = 0.22192198
 
 [connection signal="pressed" from="CajaBotones/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="CajaBotones/Configuracion" to="." method="_on_configuracion_pressed"]
