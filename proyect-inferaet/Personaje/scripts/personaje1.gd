@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stats: StatsComponent = $StatsComponent
 var facing_direction := 1
 signal health_changed
@@ -16,11 +17,22 @@ func movement():
 	var mov_x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var mov_y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	var mov = Vector2(mov_x, mov_y)
-	
+
 	if mov_x != 0:
 		facing_direction = sign(mov_x)
+		anim.flip_h = facing_direction > 0
 
-	velocity = mov.normalized() * stats.get_speed()
+	if mov != Vector2.ZERO:
+		velocity = mov.normalized() * stats.get_speed()
+		
+		if anim.animation != "walk":
+			anim.play("walk")
+	else:
+		velocity = Vector2.ZERO
+
+		if anim.animation != "idle":
+			anim.play("idle")
+
 	move_and_slide()
 
 
@@ -31,4 +43,7 @@ func _on_hurt_box_received_damage(damage):
 	health_changed.emit()
 	if stats.current_health <= 0:
 		SceneManager.change_screen("res://Escenas/base/gameover.tscn")
-		
+	
+	anim.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	anim.modulate = Color.WHITE

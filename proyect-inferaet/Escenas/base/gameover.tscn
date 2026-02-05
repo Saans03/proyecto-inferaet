@@ -30,7 +30,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4nh4k")
 
-[node name="Button" type="Button" parent="ColorRect/TextureRect"]
+[node name="PantallaInicio" type="Button" parent="ColorRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -243.0
+offset_right = 83.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Pantalla Inicio"
+
+[node name="Salir" type="Button" parent="ColorRect/TextureRect"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -60,4 +75,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Game Over"
 
-[connection signal="pressed" from="ColorRect/TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/TextureRect/PantallaInicio" to="." method="_on_pantalla_inicio_pressed"]
+[connection signal="pressed" from="ColorRect/TextureRect/Salir" to="." method="_on_salir_pressed"]

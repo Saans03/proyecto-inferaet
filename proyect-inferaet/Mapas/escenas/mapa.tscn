@@ -45,6 +45,9 @@ script = ExtResource("5_37ejg")
 [node name="HurtBox" parent="Player" index="4"]
 HurtBoxType = 0
 
+[node name="CollisionShape2D" parent="Player/HurtBox" index="0"]
+scale = Vector2(1.1353647, 1.67948)
+
 [node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
 spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_hi3xo")])
 

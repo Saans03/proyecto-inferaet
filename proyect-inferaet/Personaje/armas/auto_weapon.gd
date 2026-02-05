@@ -24,9 +24,6 @@ func _ready():
 	attack_loop()
 
 
-# -------------------------
-# LOOP AUTO ATAQUE
-# -------------------------
 func attack_loop():
 
 	while true:
@@ -37,9 +34,6 @@ func attack_loop():
 		await get_tree().process_frame
 
 
-# -------------------------
-# ATAQUE REAL
-# -------------------------
 func _attack():
 
 	var player: Player = get_parent()
@@ -48,7 +42,6 @@ func _attack():
 
 	attacking = true
 	attack_active = true
-
 	visible = true
 	hitbox.enable_hitbox()
 
@@ -60,6 +53,7 @@ func _attack():
 
 		global_position = player.global_position + Vector2(dir * slash_distance, 0)
 		sprite.flip_h = dir == -1
+		sprite.flip_v = dir == -1
 
 		time += get_process_delta_time()
 		await get_tree().process_frame

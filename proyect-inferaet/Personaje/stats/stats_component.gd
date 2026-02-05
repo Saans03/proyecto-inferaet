@@ -30,3 +30,5 @@ func take_damage(amount: int):
 	current_health = clamp(current_health, 0 , stats_base.max_health)
 	if current_health <= 0:
 		queue_free()
+	
+	

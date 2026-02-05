@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdb65b23ty00f"]
+[gd_scene load_steps=14 format=3 uid="uid://cdb65b23ty00f"]
 
-[ext_resource type="Texture2D" uid="uid://dtgdaa7l6318c" path="res://Personaje/texturas/frame1-1.png.png" id="1_c7fpj"]
 [ext_resource type="Script" uid="uid://dktpc1f8h8mp7" path="res://Personaje/scripts/personaje1.gd" id="1_opc0b"]
+[ext_resource type="Texture2D" uid="uid://gxn5jk4qe6b7" path="res://Personaje/texturas/personajeprincipal2.png" id="2_qde0v"]
 [ext_resource type="Script" uid="uid://crv0mkj1fyfn1" path="res://Personaje/stats/stats_component.gd" id="3_acl8h"]
+[ext_resource type="Texture2D" uid="uid://b2txjw1wwg510" path="res://Personaje/texturas/personajeprincipal4.png" id="3_eld76"]
 [ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Personaje/stats/stats_personaje.gd" id="4_dkt6k"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="5_7sfl7"]
 [ext_resource type="PackedScene" uid="uid://cea0785yyx1da" path="res://Personaje/armas/AutoWeapon.tscn" id="6_kc38k"]
@@ -12,15 +13,25 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_c7fpj")
+"texture": ExtResource("2_qde0v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qde0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eld76")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 2.0
+"speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_opc0b"]
-size = Vector2(16, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eld76"]
 
 [sub_resource type="Resource" id="Resource_7sfl7"]
 script = ExtResource("4_dkt6k")
@@ -28,26 +39,29 @@ max_health = 200
 speed = 150.0
 metadata/_custom_type_script = "uid://cgbkt2ernclb5"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sfl7"]
-size = Vector2(26, 26)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vh8d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qde0v"]
 radius = 15.999977
 height = 67.99991
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-14, 1)
 motion_mode = 1
 script = ExtResource("1_opc0b")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.19351631, 0.20215856)
 sprite_frames = SubResource("SpriteFrames_c46bc")
 animation = &"walk"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_opc0b")
+position = Vector2(14, 0)
+scale = Vector2(0.77161294, 1.207332)
+shape = SubResource("CapsuleShape2D_eld76")
 
 [node name="StatsComponent" type="Node2D" parent="."]
 script = ExtResource("3_acl8h")
@@ -59,19 +73,25 @@ collision_mask = 4
 HurtBoxType = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-shape = SubResource("RectangleShape2D_7sfl7")
+position = Vector2(14, 0)
+scale = Vector2(1.1284245, 1.6764096)
+shape = SubResource("CapsuleShape2D_5vh8d")
 
 [node name="AutoWeapon" parent="." instance=ExtResource("6_kc38k")]
+visible = false
 
 [node name="Sprite2D" parent="AutoWeapon" index="0"]
-position = Vector2(18.000002, 2)
-rotation = -3.873469
-scale = Vector2(0.11924686, 0.28125)
+position = Vector2(0, 6)
+rotation = -2.3125641
+scale = Vector2(0.2, 0.472)
 texture = ExtResource("7_pke5p")
 flip_h = true
 flip_v = true
 
 [node name="Hitbox" parent="AutoWeapon" index="1"]
+position = Vector2(7, -16)
+rotation = 1.578153
+scale = Vector2(1.5449595, 1.8071318)
 collision_layer = 8
 collision_mask = 8
 
