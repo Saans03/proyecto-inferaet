@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh4308ujak0bp"
-path="res://.godot/imported/INFERAET1.png-99fda9474f816516c043da8d755c4b08.ctex"
+uid="uid://cj2ofxkgxlemv"
+path="res://.godot/imported/INFERAET3.png-b760e6789c6c954b6e52656db9af48f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Escenas/texturas/titulo/INFERAET1.png"
-dest_files=["res://.godot/imported/INFERAET1.png-99fda9474f816516c043da8d755c4b08.ctex"]
+source_file="res://Escenas/texturas/titulo/INFERAET3.png"
+dest_files=["res://.godot/imported/INFERAET3.png-b760e6789c6c954b6e52656db9af48f6.ctex"]
 
 [params]
 
