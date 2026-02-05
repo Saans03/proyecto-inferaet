@@ -10,22 +10,25 @@ extends Node2D
 @onready var hitbox: Hitbox = $Hitbox
 
 var attacking := false
+var attack_active := false
 
 
 func _ready():
+
 	visible = false
 
 	hitbox.damage = damage
-	hitbox.weapon = self   # Opcional si usas lógica extra en hitbox
+	hitbox.weapon = self
 	hitbox.disable_hitbox()
 
 	attack_loop()
 
 
 # -------------------------
-# LOOP ATAQUE AUTOMÁTICO
+# LOOP AUTO ATAQUE
 # -------------------------
 func attack_loop():
+
 	while true:
 
 		if not attacking and _find_closest_enemy():
@@ -35,7 +38,7 @@ func attack_loop():
 
 
 # -------------------------
-# ATAQUE SINCRONIZADO REAL
+# ATAQUE REAL
 # -------------------------
 func _attack():
 
@@ -44,8 +47,8 @@ func _attack():
 		return
 
 	attacking = true
+	attack_active = true
 
-	# ⭐ INICIO EXACTO DEL ATAQUE
 	visible = true
 	hitbox.enable_hitbox()
 
@@ -62,7 +65,8 @@ func _attack():
 		await get_tree().process_frame
 
 
-	# ⭐ FIN EXACTO DEL ATAQUE
+	# ⭐ CORTE ABSOLUTO DE DAÑO
+	attack_active = false
 	hitbox.disable_hitbox()
 	visible = false
 
@@ -86,6 +90,7 @@ func _find_closest_enemy():
 	var best_dist = INF
 
 	for e in enemies:
+
 		if e == null:
 			continue
 
