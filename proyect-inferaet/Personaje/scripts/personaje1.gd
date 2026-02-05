@@ -43,7 +43,10 @@ func _on_hurt_box_received_damage(damage):
 	health_changed.emit()
 	if stats.current_health <= 0:
 		SceneManager.change_screen("res://Escenas/base/gameover.tscn")
-	
 	anim.modulate = Color.RED
+	if not is_inside_tree():
+		return
 	await get_tree().create_timer(0.1).timeout
+	if not is_inside_tree():
+		return
 	anim.modulate = Color.WHITE

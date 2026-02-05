@@ -25,13 +25,15 @@ func _ready():
 
 
 func attack_loop():
-
-	while true:
-
+	while is_inside_tree():
 		if not attacking and _find_closest_enemy():
 			await _attack()
 
+		if not is_inside_tree():
+			return
+
 		await get_tree().process_frame
+
 
 
 func _attack():
