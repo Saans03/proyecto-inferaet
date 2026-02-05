@@ -25,14 +25,19 @@ func _ready():
 
 
 func attack_loop():
+
 	while is_inside_tree():
+
 		if not attacking and _find_closest_enemy():
+
 			await _attack()
-
+ 
 		if not is_inside_tree():
-			return
 
+			return
+ 
 		await get_tree().process_frame
+ 
 
 
 
@@ -58,7 +63,11 @@ func _attack():
 		sprite.flip_v = dir == -1
 
 		time += get_process_delta_time()
+		if not is_inside_tree():
+
+			return
 		await get_tree().process_frame
+		
 
 
 	# ⭐ CORTE ABSOLUTO DE DAÑO

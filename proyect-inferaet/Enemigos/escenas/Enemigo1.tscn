@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvnmr4lg0hb8j"]
+[gd_scene load_steps=11 format=3 uid="uid://bvnmr4lg0hb8j"]
 
 [ext_resource type="Script" uid="uid://biwwp2uigq8ef" path="res://Enemigos/scripts/Enemigo1.gd" id="1_vcfs8"]
+[ext_resource type="PackedScene" uid="uid://v7e5xctypu71" path="res://Enemigos/escenas/ExpOrb.tscn" id="2_6vf67"]
 [ext_resource type="Texture2D" uid="uid://by1gp7ru31wn1" path="res://Enemigos/texturas/esqueletomo1.png" id="2_kw0ff"]
 [ext_resource type="Texture2D" uid="uid://bmeoxo1c5ifwx" path="res://Enemigos/texturas/esqueletomo2.png" id="3_6vf67"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="3_khiip"]
@@ -33,6 +34,7 @@ size = Vector2(47, 40)
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_vcfs8")
+exp_orb_scene = ExtResource("2_6vf67")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -18)
