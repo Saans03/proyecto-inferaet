@@ -4,6 +4,8 @@ class_name Hitbox
 @export var damage = 1
 @export var auto_add_attack_group := true
 
+var weapon = null
+
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $DisableHitboxTimer
 
@@ -13,7 +15,6 @@ func _ready():
 	if auto_add_attack_group:
 		add_to_group("attack")
 
-	# IMPORTANTE → siempre listo para detectar
 	monitoring = true
 
 
@@ -30,12 +31,11 @@ func _on_disable_hitbox_timer_timeout():
 
 
 # ---------------------------------
-# ARMA AUTOMATICA
+# ⭐ AHORA SOLO CONTROL EXTERNO
 # ---------------------------------
-func trigger_hit():
-
+func enable_hitbox():
 	collision.disabled = false
 
-	await get_tree().create_timer(0.08).timeout
 
+func disable_hitbox():
 	collision.disabled = true

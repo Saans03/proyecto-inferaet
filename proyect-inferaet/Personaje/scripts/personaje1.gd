@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 @onready var stats: StatsComponent = $StatsComponent
-
+var facing_direction := 1
 signal health_changed
 
 func _ready():
@@ -16,8 +16,13 @@ func movement():
 	var mov_x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var mov_y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	var mov = Vector2(mov_x, mov_y)
+	
+	if mov_x != 0:
+		facing_direction = sign(mov_x)
+
 	velocity = mov.normalized() * stats.get_speed()
 	move_and_slide()
+
 
 
 func _on_hurt_box_received_damage(damage):

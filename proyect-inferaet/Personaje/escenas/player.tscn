@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdb65b23ty00f"]
+[gd_scene load_steps=13 format=3 uid="uid://cdb65b23ty00f"]
 
 [ext_resource type="Texture2D" uid="uid://dtgdaa7l6318c" path="res://Personaje/texturas/frame1-1.png.png" id="1_c7fpj"]
 [ext_resource type="Script" uid="uid://dktpc1f8h8mp7" path="res://Personaje/scripts/personaje1.gd" id="1_opc0b"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Personaje/stats/stats_personaje.gd" id="4_dkt6k"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="5_7sfl7"]
 [ext_resource type="PackedScene" uid="uid://cea0785yyx1da" path="res://Personaje/armas/AutoWeapon.tscn" id="6_kc38k"]
-[ext_resource type="Texture2D" uid="uid://scv5ftwl54dm" path="res://Personaje/texturas/ataque/sonico bom1.png" id="7_pke5p"]
+[ext_resource type="Texture2D" uid="uid://bt1vd3wr6s8pa" path="res://Personaje/texturas/ataque/sonico bom2.png" id="7_pke5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c46bc"]
 animations = [{
@@ -30,6 +30,10 @@ metadata/_custom_type_script = "uid://cgbkt2ernclb5"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sfl7"]
 size = Vector2(26, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qde0v"]
+radius = 15.999977
+height = 67.99991
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
@@ -61,15 +65,20 @@ shape = SubResource("RectangleShape2D_7sfl7")
 
 [node name="Sprite2D" parent="AutoWeapon" index="0"]
 position = Vector2(18.000002, 2)
+rotation = -3.873469
 scale = Vector2(0.11924686, 0.28125)
 texture = ExtResource("7_pke5p")
+flip_h = true
+flip_v = true
 
 [node name="Hitbox" parent="AutoWeapon" index="1"]
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="AutoWeapon/Hitbox" index="0"]
-position = Vector2(18.5, 2)
+position = Vector2(15.999998, 6.9999995)
+rotation = -1.5725417
+shape = SubResource("CapsuleShape2D_qde0v")
 
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
 
