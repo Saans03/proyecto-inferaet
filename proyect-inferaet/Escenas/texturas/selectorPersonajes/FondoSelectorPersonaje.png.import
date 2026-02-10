@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbo3k3j1aleok"
-path="res://.godot/imported/healthBarProgress-1.png.png-2ae85ac30022d7b721a6f52116739dea.ctex"
+uid="uid://c5e7dkptvpck5"
+path="res://.godot/imported/FondoSelectorPersonaje.png-3459f8f5375556cc1ad0a6adce340689.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personaje/texturas/barraVida/healthBarProgress-1.png.png"
-dest_files=["res://.godot/imported/healthBarProgress-1.png.png-2ae85ac30022d7b721a6f52116739dea.ctex"]
+source_file="res://Escenas/texturas/selectorPersonajes/FondoSelectorPersonaje.png"
+dest_files=["res://.godot/imported/FondoSelectorPersonaje.png-3459f8f5375556cc1ad0a6adce340689.ctex"]
 
 [params]
 

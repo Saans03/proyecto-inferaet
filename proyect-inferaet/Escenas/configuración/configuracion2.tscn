@@ -89,12 +89,15 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="ResolutionOption" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "graficos"
+
+[node name="ConfirmExitDialog" type="AcceptDialog" parent="."]
 
 [connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="HBoxContainer/Controles" to="." method="_on_controles_pressed"]
 [connection signal="pressed" from="HBoxContainer/Gráficos" to="." method="_on_gráficos_pressed"]
 [connection signal="pressed" from="HBoxContainer/Jugabilidad" to="." method="_on_jugabilidad_pressed"]
 [connection signal="pressed" from="HBoxContainer/Sistema" to="." method="_on_sistema_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="confirmed" from="ConfirmExitDialog" to="." method="_on_confirm_exit_dialog_confirmed"]

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var menuPausa = $Player/Camera2D/CanvasLayer/MenuPausa
 var pausa = false
+var tiempo = 0
 
 func _ready():
 	Engine.time_scale = 1
@@ -20,3 +21,8 @@ func PauseMenu ():
 		menuPausa.show()
 		Engine.time_scale = 0
 	pausa = !pausa
+
+
+func _on_timer_timeout():
+	tiempo += 1
+	$timer/Label.text = str(tiempo)

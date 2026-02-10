@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0dtnmrnqheaw"]
+[gd_scene load_steps=12 format=3 uid="uid://d0dtnmrnqheaw"]
 
 [ext_resource type="Script" uid="uid://bsro832w2eag6" path="res://Escenas/Scripts/menu.gd" id="1_7m3vj"]
 [ext_resource type="Texture2D" uid="uid://nltta3mao33k" path="res://Escenas/texturas/fondos/imagen1.jpg" id="2_l78xl"]
@@ -6,12 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ou50gqhsarx3" path="res://Escenas/texturas/titulo/INFERAET2.png" id="4_megjb"]
 [ext_resource type="Texture2D" uid="uid://cj2ofxkgxlemv" path="res://Escenas/texturas/titulo/INFERAET3.png" id="5_yj7i3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6gr2"]
 bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
 bg_color = Color(0.9254902, 0, 0.13725491, 1)
@@ -47,6 +43,13 @@ expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vtuqf"]
 animations = [{
@@ -110,7 +113,7 @@ theme_override_constants/separation = 10
 [node name="Jugar" type="Button" parent="CajaBotones"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q6gr2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ytr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ecwwl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_4hy44")

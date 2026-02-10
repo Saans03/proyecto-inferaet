@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b4xmh6tbbbj5r" path="res://Personaje/texturas/barraVida/healthBarProgress.png" id="10_xdpc2"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
-[ext_resource type="Texture2D" uid="uid://dbo3k3j1aleok" path="res://Personaje/texturas/barraVida/healthBarProgress-1.png.png" id="12_kk1kb"]
+[ext_resource type="Texture2D" uid="uid://dn616akmrfa82" path="res://Personaje/texturas/barraVida/expProgressBar.png" id="12_kk1kb"]
 
 [sub_resource type="Resource" id="Resource_hi3xo"]
 script = ExtResource("7_kfu48")
@@ -58,8 +58,10 @@ spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_hi3xo")])
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -78.0
-offset_bottom = 27.0
+offset_left = -77.0
+offset_top = 23.0
+offset_right = 1.0
+offset_bottom = 50.0
 grow_horizontal = 0
 value = 100.0
 
@@ -67,8 +69,10 @@ value = 100.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -240.0
-offset_bottom = 40.0
+offset_left = -239.0
+offset_top = 20.0
+offset_right = 1.0
+offset_bottom = 60.0
 grow_horizontal = 0
 texture_under = ExtResource("9_7ie5b")
 texture_progress = ExtResource("10_xdpc2")
@@ -78,10 +82,12 @@ player = NodePath("../../Player")
 [node name="exp" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="exp" node_paths=PackedStringArray("player")]
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+offset_right = -740.0
 offset_bottom = 32.0
 grow_horizontal = 2
+scale = Vector2(4.1, 0.7)
 texture_under = ExtResource("9_7ie5b")
 texture_progress = ExtResource("12_kk1kb")
 script = ExtResource("12_hvhng")
@@ -91,8 +97,20 @@ player = NodePath("../../Player")
 offset_right = 4.0
 offset_bottom = 27.0
 
+[node name="timer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="timer"]
+autostart = true
+
+[node name="Label" type="Label" parent="timer"]
+offset_left = 396.0
+offset_top = 86.0
+offset_right = 577.0
+offset_bottom = 139.0
+
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Continuar" to="Player/Camera2D/CanvasLayer/MenuPausa" method="_on_continuar_pressed"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Salir" to="Player/Camera2D/CanvasLayer/MenuPausa" method="_on_salir_pressed"]
+[connection signal="timeout" from="timer/Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/Camera2D/CanvasLayer/MenuPausa"]
