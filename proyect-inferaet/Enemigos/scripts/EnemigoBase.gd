@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name EnemigoBase
 
 @export var exp_drop := 3
 @export var exp_orb_scene : PackedScene

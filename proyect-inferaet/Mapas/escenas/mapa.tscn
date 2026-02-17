@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bci8s0f50kb75" path="res://Escenas/Scripts/menu_pausa.gd" id="5_37ejg"]
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
-[ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/Enemigo1.tscn" id="8_nj5h0"]
+[ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="8_nj5h0"]
 [ext_resource type="Texture2D" uid="uid://bkwavngm4yla" path="res://Personaje/texturas/barraVida/HealthBarUnder.png" id="9_7ie5b"]
 [ext_resource type="Texture2D" uid="uid://b4xmh6tbbbj5r" path="res://Personaje/texturas/barraVida/healthBarProgress.png" id="10_xdpc2"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
@@ -82,7 +82,7 @@ player = NodePath("../../Player")
 [node name="exp" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="exp" node_paths=PackedStringArray("player")]
-anchors_preset = -1
+anchors_preset = 10
 anchor_right = 1.0
 offset_right = -740.0
 offset_bottom = 32.0
