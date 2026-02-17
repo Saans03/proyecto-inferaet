@@ -10,6 +10,7 @@ signal health_changed
 signal exp_changed
 signal level_up
 
+
 # -------------------------
 # EXP SYSTEM
 # -------------------------
@@ -21,7 +22,12 @@ signal level_up
 func _ready():
 	add_to_group("player")
 	print("PLAYER READY")
+
 	exp_to_next = 5
+
+	# NUEVAS CONEXIONES
+	stats.died.connect(_on_stats_died)
+	stats.health_changed.connect(_on_stats_health_changed)
 
 
 func _physics_process(delta):
@@ -76,7 +82,7 @@ func add_exp(amount:int):
 
 
 # -------------------------
-# DAMAGE SYSTEM (CORRECTO)
+# DAMAGE SYSTEM
 # -------------------------
 func _on_hurt_box_received_damage(damage):
 	apply_damage(damage)
@@ -84,18 +90,11 @@ func _on_hurt_box_received_damage(damage):
 
 func apply_damage(damage:int):
 
-	stats.current_health -= damage
+	stats.take_damage(damage)
 
 	print("PLAYER TOOK DAMAGE:", damage)
-	print("HP:", stats.current_health)
+	print("HP:", stats.get_current_health(), "/", stats.get_max_health())
 
-	health_changed.emit()
-
-	if stats.current_health <= 0:
-		SceneManager.change_screen("res://Escenas/base/gameover.tscn")
-		return
-
-	
 	anim.modulate = Color.RED
 	if not is_inside_tree():
 		return
@@ -103,3 +102,14 @@ func apply_damage(damage:int):
 	if not is_inside_tree():
 		return
 	anim.modulate = Color.WHITE
+
+
+# -------------------------
+# SIGNAL HANDLERS
+# -------------------------
+func _on_stats_health_changed(current, max):
+	health_changed.emit()
+
+func _on_stats_died():
+	print("PLAYER DIED")
+	SceneManager.change_screen("res://Escenas/base/gameover.tscn")
