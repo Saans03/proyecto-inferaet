@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://big8n5ss2dviy"]
+
+[ext_resource type="Script" path="res://Enemigos/escenas/EnemigoEsqueleto.gd" id="1_kw0ff"]
+[ext_resource type="PackedScene" uid="uid://v7e5xctypu71" path="res://Enemigos/escenas/ExpOrb.tscn" id="2_6vf67"]
+[ext_resource type="Texture2D" uid="uid://by1gp7ru31wn1" path="res://Enemigos/texturas/esqueletomo1.png" id="2_kw0ff"]
+[ext_resource type="Texture2D" uid="uid://bmeoxo1c5ifwx" path="res://Enemigos/texturas/esqueletomo2.png" id="3_6vf67"]
+[ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="3_khiip"]
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="4_7gol1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ij6vw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6vf67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kw0ff")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 1.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfs8"]
+size = Vector2(14, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0ff"]
+size = Vector2(40, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4h4y"]
+size = Vector2(47, 40)
+
+[node name="EnemigoEsqueleto" type="CharacterBody2D"]
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_kw0ff")
+exp_orb_scene = ExtResource("2_6vf67")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -18)
+scale = Vector2(0.11715156, 0.12999828)
+sprite_frames = SubResource("SpriteFrames_ij6vw")
+animation = &"walk"
+frame_progress = 0.9641184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4, 0.5)
+shape = SubResource("RectangleShape2D_vcfs8")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_khiip")]
+collision_layer = 8
+collision_mask = 8
+HurtBoxType = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+visible = false
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kw0ff")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_7gol1")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+visible = false
+position = Vector2(-5, 1)
+shape = SubResource("RectangleShape2D_w4h4y")
+
+[connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
+
+[editable path="HurtBox"]
+[editable path="Hitbox"]
