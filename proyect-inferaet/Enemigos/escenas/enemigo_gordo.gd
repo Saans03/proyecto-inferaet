@@ -2,6 +2,6 @@ extends EnemigoBase
 
 func _ready():
 	super._ready()
-	hp = 500
-	mov_speed = 50
-	exp_drop = 5
+	hp = 3000
+	mov_speed = 20
+	exp_drop = 100

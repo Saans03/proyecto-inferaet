@@ -35,7 +35,6 @@ y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_kw0ff")
 exp_orb_scene = ExtResource("2_4xvfw")
-mov_speed = 400
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, -18)
@@ -45,7 +44,6 @@ animation = &"walk"
 frame_progress = 0.9641184
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(4, 0.5)
 shape = SubResource("RectangleShape2D_vcfs8")
 
@@ -55,8 +53,6 @@ collision_mask = 8
 HurtBoxType = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-visible = false
-position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_kw0ff")
 
 [node name="Hitbox" parent="." instance=ExtResource("4_7gol1")]
@@ -64,8 +60,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-visible = false
-position = Vector2(-5, 1)
 shape = SubResource("RectangleShape2D_w4h4y")
 
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
