@@ -46,7 +46,7 @@ offset_top = -84.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_5tgcr")
-text = "Salir"
+text = "Volver"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -82,13 +82,21 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResolutionOption" type="OptionButton" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pantalla"
+
+[node name="PantallaOption" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="ConfirmExitDialog" type="AcceptDialog" parent="."]
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resolución"
+
+[node name="ResolucionOption" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="HBoxContainer/Audio" to="." method="_on_controles_pressed"]
 [connection signal="pressed" from="HBoxContainer/Gráficos" to="." method="_on_gráficos_pressed"]
-[connection signal="item_selected" from="VBoxContainer/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
-[connection signal="confirmed" from="ConfirmExitDialog" to="." method="_on_confirm_exit_dialog_confirmed"]
+[connection signal="item_selected" from="VBoxContainer/ResolucionOption" to="." method="_on_resolution_option_item_selected"]
