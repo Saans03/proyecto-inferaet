@@ -25,7 +25,6 @@ func _ready():
 
 	exp_to_next = 5
 
-	# NUEVAS CONEXIONES
 	stats.died.connect(_on_stats_died)
 	stats.health_changed.connect(_on_stats_health_changed)
 
@@ -33,10 +32,6 @@ func _ready():
 func _physics_process(delta):
 	movement()
 
-
-# -------------------------
-# MOVEMENT
-# -------------------------
 func movement():
 
 	var mov_x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -61,13 +56,9 @@ func movement():
 	move_and_slide()
 
 
-# -------------------------
-# EXP SYSTEM
-# -------------------------
 func add_exp(amount:int):
 
 	current_exp += amount
-	print("EXP +", amount, " -> ", current_exp, "/", exp_to_next)
 
 	exp_changed.emit()
 
@@ -76,14 +67,10 @@ func add_exp(amount:int):
 		current_exp -= exp_to_next
 		level += 1
 		exp_to_next = int(exp_to_next * 1.4)
-
-		print("LEVEL UP -> ", level)
+		
 		level_up.emit()
 
 
-# -------------------------
-# DAMAGE SYSTEM
-# -------------------------
 func _on_hurt_box_received_damage(damage):
 	apply_damage(damage)
 
@@ -91,9 +78,6 @@ func _on_hurt_box_received_damage(damage):
 func apply_damage(damage:int):
 
 	stats.take_damage(damage)
-
-	print("PLAYER TOOK DAMAGE:", damage)
-	print("HP:", stats.get_current_health(), "/", stats.get_max_health())
 
 	anim.modulate = Color.RED
 	if not is_inside_tree():
@@ -103,13 +87,8 @@ func apply_damage(damage:int):
 		return
 	anim.modulate = Color.WHITE
 
-
-# -------------------------
-# SIGNAL HANDLERS
-# -------------------------
 func _on_stats_health_changed(current, max):
 	health_changed.emit()
 
 func _on_stats_died():
-	print("PLAYER DIED")
 	SceneManager.change_screen("res://Escenas/base/gameover.tscn")

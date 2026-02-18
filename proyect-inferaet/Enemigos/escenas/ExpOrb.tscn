@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://v7e5xctypu71"]
 
-[ext_resource type="Script" uid="uid://c0mnkh8ycypdi" path="res://Enemigos/escenas/exp_orb.gd" id="1_fv6xa"]
+[ext_resource type="Script" uid="uid://c0mnkh8ycypdi" path="res://Enemigos/scripts/exp_orb.gd" id="1_fv6xa"]
 
 [node name="ExpOrb" type="Area2D"]
 collision_layer = 2

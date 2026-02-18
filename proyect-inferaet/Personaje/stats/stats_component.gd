@@ -24,10 +24,6 @@ func _ready():
 	attack = stats_base.attack
 	defense = stats_base.defense
 
-
-# -------------------------
-# GETTERS
-# -------------------------
 func get_current_health():
 	return current_health
 
@@ -37,10 +33,6 @@ func get_max_health():
 func get_speed() -> float:
 	return speed
 
-
-# -------------------------
-# DAMAGE SYSTEM
-# -------------------------
 func take_damage(amount: int):
 
 	current_health -= amount

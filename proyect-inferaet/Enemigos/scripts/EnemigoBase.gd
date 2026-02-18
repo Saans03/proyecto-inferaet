@@ -1,10 +1,11 @@
 extends CharacterBody2D
+class_name EnemigoBase
 
 @export var exp_drop := 3
 @export var exp_orb_scene : PackedScene
 
-var hp : int = 10
-var mov_speed = 100
+@export var hp : int = 10
+@export var mov_speed = 100
 
 @onready var anim: AnimatedSprite2D = $Sprite
 var player : Player
@@ -50,10 +51,9 @@ func die():
 func drop_exp():
 
 	if exp_orb_scene == null:
-		print("NO EXP ORB SCENE")
 		return
 
-	for i in exp_drop:
+	for i in range(exp_drop):
 
 		var orb = exp_orb_scene.instantiate()
 		get_tree().current_scene.add_child(orb)

@@ -43,7 +43,6 @@ func _on_resolution_option_item_selected(index):
 	DisplayServer.window_set_size(resolutions[index])
  
  
-# --- CAMBIO DE ESCENAS ---
 func _on_salir_pressed() -> void:
 	SceneManager.change_packed_screen(change_scene)
  
