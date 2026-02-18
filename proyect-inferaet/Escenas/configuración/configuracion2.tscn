@@ -59,21 +59,14 @@ offset_bottom = 40.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Controles" type="Button" parent="HBoxContainer"]
+[node name="Audio" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Controles"
+text = "Audio
+"
 
 [node name="Gráficos" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Gráficos"
-
-[node name="Jugabilidad" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "Jugabilidad"
-
-[node name="Sistema" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "Sistema"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -95,9 +88,7 @@ layout_mode = 2
 [node name="ConfirmExitDialog" type="AcceptDialog" parent="."]
 
 [connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
-[connection signal="pressed" from="HBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="HBoxContainer/Audio" to="." method="_on_controles_pressed"]
 [connection signal="pressed" from="HBoxContainer/Gráficos" to="." method="_on_gráficos_pressed"]
-[connection signal="pressed" from="HBoxContainer/Jugabilidad" to="." method="_on_jugabilidad_pressed"]
-[connection signal="pressed" from="HBoxContainer/Sistema" to="." method="_on_sistema_pressed"]
 [connection signal="item_selected" from="VBoxContainer/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
 [connection signal="confirmed" from="ConfirmExitDialog" to="." method="_on_confirm_exit_dialog_confirmed"]
