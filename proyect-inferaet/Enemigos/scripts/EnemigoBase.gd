@@ -12,11 +12,15 @@ var player : Player
 
 
 func _ready():
+	EnemyManager.register_enemy(self)
 	add_to_group("enemy")
 	player = get_tree().get_first_node_in_group("player")
 	exp_drop = 5
 
-
+func _exit_tree():
+	EnemyManager.unregister_enemy(self)
+	
+	
 func _physics_process(_delta):
 
 	if player == null:

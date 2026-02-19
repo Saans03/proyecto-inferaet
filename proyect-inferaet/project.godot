@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 SceneManager="*res://Escenas/Scripts/SceneManager.gd"
+EnemyManager="*res://Enemigos/scripts/EnemyManager.gd"
 
 [display]
 

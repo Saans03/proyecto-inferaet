@@ -86,7 +86,7 @@ func _find_closest_enemy():
 	if player == null:
 		return null
 
-	var enemies = get_tree().get_nodes_in_group("enemy")
+	var enemies = EnemyManager.enemies
 
 	var best = null
 	var best_dist = INF
