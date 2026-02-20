@@ -21,14 +21,12 @@ var resolutions = [
  
 func _ready():
  
-	# ================= RESOLUCIÓN =================
 	if resolution_option != null:
 		resolution_option.clear()
 		for r in resolutions:
 			resolution_option.add_item(str(r.x) + "x" + str(r.y))
 		resolution_option.connect("item_selected", Callable(self, "_on_resolution_option_item_selected"))
  
-	# ================= MODOS DE PANTALLA =================
 	if window_mode_option != null:
 		window_mode_option.clear()
 		window_mode_option.add_item("Ventana")
@@ -36,7 +34,6 @@ func _ready():
 		window_mode_option.add_item("Ventana sin bordes")
 		window_mode_option.connect("item_selected", Callable(self, "_on_window_mode_selected"))
  
-	# ================= AUDIO =================
 	if master_slider != null:
 		master_slider.connect("value_changed", Callable(self, "_on_master_slider_value_changed"))
 	if music_slider != null:

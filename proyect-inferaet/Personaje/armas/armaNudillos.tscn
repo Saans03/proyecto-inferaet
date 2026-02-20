@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cea0785yyx1da"]
 
-[ext_resource type="Script" uid="uid://wruehtd03wh4" path="res://Personaje/armas/auto_weapon.gd" id="1_bg3qk"]
-[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_dmi2b"]
+[ext_resource type="Script" uid="uid://bc2cu7rq3jwn8" path="res://Personaje/armas/armaNudillos.gd" id="1_7cyfv"]
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_etiq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmi2b"]
 size = Vector2(57, 54)
 
 [node name="AutoWeapon" type="Node2D"]
-script = ExtResource("1_bg3qk")
+script = ExtResource("1_7cyfv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Hitbox" parent="." instance=ExtResource("2_dmi2b")]
+[node name="Hitbox" parent="." instance=ExtResource("2_etiq6")]
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(447, 0)

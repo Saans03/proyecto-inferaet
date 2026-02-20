@@ -11,10 +11,6 @@ var weapon = null
 func _ready():
 	monitoring = true
 
-
-# -------------------------
-# CONTROL EXTERNO
-# -------------------------
 func enable_hitbox():
 	collision.disabled = false
 
@@ -23,9 +19,6 @@ func disable_hitbox():
 	collision.disabled = true
 
 
-# -------------------------
-# DETECCIÓN DAÑO
-# -------------------------
 func _on_area_entered(area):
 
 	if weapon == null:
