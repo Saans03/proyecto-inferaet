@@ -1,9 +1,4 @@
 extends Control
-
-@onready var animacion: AnimatedSprite2D = $AnimatedSprite2D
-#funciones
-func _physics_process(delta):
-	animacion.play("titulo")
 	
 func _on_salir_pressed() -> void:
 	get_tree().quit()

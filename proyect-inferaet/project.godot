@@ -21,8 +21,7 @@ EnemyManager="*res://Enemigos/scripts/EnemyManager.gd"
 
 [display]
 
-window/size/viewport_width=980
-window/size/viewport_height=720
+window/size/resizable=false
 
 [input]
 

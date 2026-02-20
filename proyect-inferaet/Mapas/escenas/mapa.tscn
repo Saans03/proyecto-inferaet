@@ -36,6 +36,7 @@ metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 script = ExtResource("1_1all6")
 
 [node name="Fondo" type="Sprite2D" parent="."]
+visible = false
 texture_repeat = 2
 texture = ExtResource("2_1all6")
 region_enabled = true
@@ -101,10 +102,11 @@ player = NodePath("../../Player")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="exp" node_paths=PackedStringArray("player")]
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = -740.0
+offset_right = -663.7073
 offset_bottom = 32.0
 grow_horizontal = 2
 scale = Vector2(4.1, 0.7)
+size_flags_vertical = 4
 texture_under = ExtResource("9_7ie5b")
 texture_progress = ExtResource("12_kk1kb")
 script = ExtResource("12_hvhng")
