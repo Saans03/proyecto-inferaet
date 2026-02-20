@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt1vd3wr6s8pa"
-path="res://.godot/imported/sonico bom2.png-1b507f4cdbb490030556c28ff3dd16b3.ctex"
+uid="uid://cpxfhlgpdpw62"
+path="res://.godot/imported/xplosion1.png-c481d0acebdca713a0c49ab15c9bdd44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personaje/texturas/ataque/sonico bom2.png"
-dest_files=["res://.godot/imported/sonico bom2.png-1b507f4cdbb490030556c28ff3dd16b3.ctex"]
+source_file="res://Enemigos/texturas/xplosion1.png"
+dest_files=["res://.godot/imported/xplosion1.png-c481d0acebdca713a0c49ab15c9bdd44.ctex"]
 
 [params]
 

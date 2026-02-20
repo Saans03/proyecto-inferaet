@@ -43,11 +43,11 @@ func _on_hurt_box_received_damage(damage):
 	hp -= damage
 
 	if hp <= 0:
+		anim.play("death")
 		die()
 
 
 func die():
-
 	drop_exp()
 	queue_free()
 

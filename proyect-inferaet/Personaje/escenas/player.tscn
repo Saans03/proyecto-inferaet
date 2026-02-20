@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Personaje/stats/stats_personaje.gd" id="4_dkt6k"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="5_7sfl7"]
 [ext_resource type="PackedScene" uid="uid://cea0785yyx1da" path="res://Personaje/armas/AutoWeapon.tscn" id="6_kc38k"]
-[ext_resource type="Texture2D" uid="uid://bt1vd3wr6s8pa" path="res://Personaje/texturas/ataque/sonico bom2.png" id="7_pke5p"]
+[ext_resource type="Texture2D" uid="uid://bt1vd3wr6s8pa" path="res://Personaje/armas/texturas/sonico bom2.png" id="7_pke5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c46bc"]
 animations = [{
@@ -46,13 +46,13 @@ radius = 15.999977
 height = 67.99991
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(-14, 1)
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_opc0b")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13, 0.99999994)
 scale = Vector2(0.19351631, 0.20215856)
 sprite_frames = SubResource("SpriteFrames_c46bc")
 animation = &"walk"
@@ -60,7 +60,7 @@ animation = &"walk"
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 0)
+position = Vector2(2.2737368e-13, 0)
 scale = Vector2(0.77161294, 1.207332)
 shape = SubResource("CapsuleShape2D_eld76")
 
@@ -74,7 +74,7 @@ collision_mask = 4
 HurtBoxType = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(14, 0)
+position = Vector2(-2.861023e-06, 0)
 scale = Vector2(1.1284245, 1.6764096)
 shape = SubResource("CapsuleShape2D_5vh8d")
 

@@ -1,14 +1,35 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvnmr4lg0hb8j"]
+[gd_scene load_steps=15 format=3 uid="uid://bvnmr4lg0hb8j"]
 
 [ext_resource type="Script" uid="uid://7fignplxrtlk" path="res://Enemigos/scripts/EnemigoEsqueleto.gd" id="1_kw0ff"]
 [ext_resource type="PackedScene" uid="uid://v7e5xctypu71" path="res://Enemigos/escenas/ExpOrb.tscn" id="2_4xvfw"]
 [ext_resource type="Texture2D" uid="uid://by1gp7ru31wn1" path="res://Enemigos/texturas/esqueletomo1.png" id="2_kw0ff"]
+[ext_resource type="Texture2D" uid="uid://cpxfhlgpdpw62" path="res://Enemigos/texturas/xplosion1.png" id="3_0wt4f"]
 [ext_resource type="Texture2D" uid="uid://bmeoxo1c5ifwx" path="res://Enemigos/texturas/esqueletomo2.png" id="3_6vf67"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="3_khiip"]
+[ext_resource type="Texture2D" uid="uid://88mjlhrt5osk" path="res://Enemigos/texturas/xplosion2.png" id="4_6jcij"]
 [ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="4_7gol1"]
+[ext_resource type="Texture2D" uid="uid://dpcsehet1dg1a" path="res://Enemigos/texturas/xplosion3.png" id="5_rxsvi"]
+[ext_resource type="Texture2D" uid="uid://de0wf0ng1eyff" path="res://Enemigos/texturas/xplosion4.png" id="6_j7hak"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ij6vw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0wt4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6jcij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rxsvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j7hak")
+}],
+"loop": true,
+"name": &"death",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_6vf67")
@@ -22,7 +43,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcfs8"]
-size = Vector2(14, 13)
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0ff"]
 size = Vector2(40, 42)
@@ -37,14 +58,13 @@ script = ExtResource("1_kw0ff")
 exp_orb_scene = ExtResource("2_4xvfw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(7, -18)
+position = Vector2(3, -19)
 scale = Vector2(0.11715156, 0.12999828)
 sprite_frames = SubResource("SpriteFrames_ij6vw")
 animation = &"walk"
-frame_progress = 0.9641184
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 0.5)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_vcfs8")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_khiip")]

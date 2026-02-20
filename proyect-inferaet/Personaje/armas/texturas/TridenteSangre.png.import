@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://scv5ftwl54dm"
-path="res://.godot/imported/sonico bom1.png-0d6daef10d9c79edc13f688291b3740d.ctex"
+uid="uid://633ur824fjr4"
+path="res://.godot/imported/TridenteSangre.png-91ee7043fd7c5b1f4fab02e1ffaadd66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personaje/texturas/ataque/sonico bom1.png"
-dest_files=["res://.godot/imported/sonico bom1.png-0d6daef10d9c79edc13f688291b3740d.ctex"]
+source_file="res://Personaje/armas/texturas/TridenteSangre.png"
+dest_files=["res://.godot/imported/TridenteSangre.png-91ee7043fd7c5b1f4fab02e1ffaadd66.ctex"]
 
 [params]
 

@@ -5,7 +5,8 @@ extends armaBase
 
 func _ready():
 	super._ready()
-	damage = 500
+	level = 1
+	damage = 3000
 	cooldown = 0.2
 
 func _find_target():

@@ -1,6 +1,7 @@
 extends Node2D
 class_name armaBase
 
+@export var level := 1
 @export var damage := 500
 @export var cooldown := 0.8
 
