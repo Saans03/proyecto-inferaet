@@ -21,6 +21,10 @@ var resolutions = [
  
 func _ready():
  
+	# 🔒 Si el juego arranca en modo ventana, bloquear redimensionado
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
+ 
 	# ================= RESOLUCIÓN =================
 	if resolution_option != null:
 		resolution_option.clear()
@@ -33,7 +37,6 @@ func _ready():
 		window_mode_option.clear()
 		window_mode_option.add_item("Ventana")
 		window_mode_option.add_item("Pantalla completa")
-		window_mode_option.add_item("Ventana sin bordes")
 		window_mode_option.connect("item_selected", Callable(self, "_on_window_mode_selected"))
  
 	# ================= AUDIO =================
@@ -77,12 +80,13 @@ func load_settings():
 		sfx_slider.value = sfx_val
 		_apply_sfx_volume(sfx_val)
  
-	# ===== VIDEO (solo para mostrar selección en OptionButtons, no cambia ventana) =====
+	# ===== VIDEO =====
 	var window_mode = 0
 	if err == OK:
 		window_mode = config.get_value("video", "window_mode", 0)
 	if window_mode_option != null:
 		window_mode_option.select(window_mode)
+		_apply_window_mode(window_mode) # 👈 Aplicar modo al cargar
  
 	var resolution_index = 0
 	if err == OK:
@@ -123,6 +127,7 @@ func _apply_resolution(index, force_windowed := true):
 	if index >= 0 and index < resolutions.size():
 		if force_windowed:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
 			await get_tree().process_frame
 		DisplayServer.window_set_size(resolutions[index])
  
@@ -137,11 +142,18 @@ func _apply_window_mode(index):
 		0: # Ventana
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
+ 
+			# ✅ Activar selector de resolución
+			if resolution_option != null:
+				resolution_option.disabled = false
+ 
 		1: # Pantalla completa
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		2: # Ventana sin bordes
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+ 
+			# ✅ Desactivar selector de resolución
+			if resolution_option != null:
+				resolution_option.disabled = true
  
  
 # =====================================================

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=17 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://bupsjjnggg8fk" path="res://Mapas/texturas/Captura de pantalla 2026-02-05 095107.png" id="2_1all6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
 [ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="8_nj5h0"]
 [ext_resource type="Texture2D" uid="uid://bkwavngm4yla" path="res://Personaje/texturas/barraVida/HealthBarUnder.png" id="9_7ie5b"]
+[ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="9_iywlr"]
 [ext_resource type="Texture2D" uid="uid://b4xmh6tbbbj5r" path="res://Personaje/texturas/barraVida/healthBarProgress.png" id="10_xdpc2"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
@@ -20,6 +21,14 @@ time_end = 60
 enemy_scene = ExtResource("8_nj5h0")
 enemy_num = 5
 enemy_spawn_delay = 2
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_37ejg"]
+script = ExtResource("7_kfu48")
+time_end = 120
+enemy_scene = ExtResource("9_iywlr")
+enemy_num = 3
+enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [node name="Mapa" type="Node2D"]
@@ -51,7 +60,7 @@ HurtBoxType = 0
 scale = Vector2(1.1353647, 1.67948)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
-spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_kk1kb")])
+spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_kk1kb"), SubResource("Resource_37ejg")])
 
 [node name="vida" type="CanvasLayer" parent="."]
 
