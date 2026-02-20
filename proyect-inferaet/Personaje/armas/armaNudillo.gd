@@ -30,7 +30,7 @@ func _find_target():
 func _attack(target):
 	var player: Player = get_parent()
 	if player == null:
-		return  # Si el player no existe, salimos inmediatamente
+		return  
 
 	attacking = true
 	attack_active = true
@@ -41,7 +41,6 @@ func _attack(target):
 	var time := 0.0
 
 	while time < attack_duration:
-		# Si el player desaparece durante el ataque, terminamos
 		player = get_parent()
 		if player == null or not is_inside_tree():
 			break
