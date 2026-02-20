@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=19 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://bupsjjnggg8fk" path="res://Mapas/texturas/Captura de pantalla 2026-02-05 095107.png" id="2_1all6"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="9_iywlr"]
 [ext_resource type="Texture2D" uid="uid://b4xmh6tbbbj5r" path="res://Personaje/texturas/barraVida/healthBarProgress.png" id="10_xdpc2"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
+[ext_resource type="Texture2D" uid="uid://b6upq3dkywy3b" path="res://Mapas/texturas/barrarexper2.png" id="12_f5350"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
-[ext_resource type="Texture2D" uid="uid://dn616akmrfa82" path="res://Personaje/texturas/barraVida/expProgressBar.png" id="12_kk1kb"]
+[ext_resource type="Texture2D" uid="uid://db16bll3ngjog" path="res://Mapas/texturas/barraexper (1).png" id="14_f5350"]
 
 [sub_resource type="Resource" id="Resource_kk1kb"]
 script = ExtResource("7_kfu48")
@@ -36,7 +37,6 @@ metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 script = ExtResource("1_1all6")
 
 [node name="Fondo" type="Sprite2D" parent="."]
-visible = false
 texture_repeat = 2
 texture = ExtResource("2_1all6")
 region_enabled = true
@@ -70,9 +70,40 @@ attack_duration = 0.25
 [node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
 spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_kk1kb"), SubResource("Resource_37ejg")])
 
+[node name="exp" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="exp"]
+layout_direction = 3
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 0.3
+offset_bottom = 0.3
+grow_horizontal = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/Control" node_paths=PackedStringArray("player")]
+layout_mode = 0
+offset_right = 1536.0
+offset_bottom = 161.0
+scale = Vector2(0.8, 0.3)
+texture_under = ExtResource("14_f5350")
+texture_progress = ExtResource("12_f5350")
+script = ExtResource("12_hvhng")
+player = NodePath("../../../Player")
+
+[node name="ProgressBar" type="ProgressBar" parent="exp/Control/TextureProgressBar"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+show_percentage = false
+
 [node name="vida" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="vida"]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -88,34 +119,14 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -239.0
-offset_top = 20.0
+offset_top = 63.0
 offset_right = 1.0
-offset_bottom = 60.0
+offset_bottom = 151.0
 grow_horizontal = 0
 texture_under = ExtResource("9_7ie5b")
 texture_progress = ExtResource("10_xdpc2")
 script = ExtResource("11_rh4xi")
 player = NodePath("../../Player")
-
-[node name="exp" type="CanvasLayer" parent="."]
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="exp" node_paths=PackedStringArray("player")]
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -663.7073
-offset_bottom = 32.0
-grow_horizontal = 2
-scale = Vector2(4.1, 0.7)
-size_flags_vertical = 4
-texture_under = ExtResource("9_7ie5b")
-texture_progress = ExtResource("12_kk1kb")
-script = ExtResource("12_hvhng")
-player = NodePath("../../Player")
-
-[node name="ProgressBar" type="ProgressBar" parent="exp"]
-offset_right = 4.0
-offset_bottom = 27.0
-show_percentage = false
 
 [node name="timer" type="CanvasLayer" parent="."]
 
