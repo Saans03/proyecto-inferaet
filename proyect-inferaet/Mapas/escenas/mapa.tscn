@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=22 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://bupsjjnggg8fk" path="res://Mapas/texturas/Captura de pantalla 2026-02-05 095107.png" id="2_1all6"]
@@ -10,10 +10,11 @@
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
 [ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="8_nj5h0"]
 [ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="9_iywlr"]
+[ext_resource type="Texture2D" uid="uid://chgsadekbmw78" path="res://Mapas/texturas/barraexperiencia2.png" id="11_7ie5b"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
-[ext_resource type="Texture2D" uid="uid://b6upq3dkywy3b" path="res://Mapas/texturas/barrarexper2.png" id="12_f5350"]
+[ext_resource type="Texture2D" uid="uid://dnxrx3dnub82u" path="res://Mapas/texturas/barraexperiencia.png" id="11_xdpc2"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
-[ext_resource type="Texture2D" uid="uid://db16bll3ngjog" path="res://Mapas/texturas/barraexper (1).png" id="14_f5350"]
+[ext_resource type="Script" uid="uid://6ct3dbr3vgxn" path="res://Mapas/escenas/margin_container.gd" id="14_7ie5b"]
 [ext_resource type="Texture2D" uid="uid://bme37myc5gw8p" path="res://Mapas/texturas/barravida (1).png" id="14_kfu48"]
 [ext_resource type="Texture2D" uid="uid://ca8h6l5v4unw0" path="res://Mapas/texturas/barravida (2).png" id="14_nj5h0"]
 [ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="17_kfu48"]
@@ -39,7 +40,6 @@ metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 script = ExtResource("1_1all6")
 
 [node name="Fondo" type="Sprite2D" parent="."]
-visible = false
 texture_repeat = 2
 texture = ExtResource("2_1all6")
 region_enabled = true
@@ -92,14 +92,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -973.5
-offset_top = 6.0
-offset_right = 625.0
-offset_bottom = 167.0
+offset_left = -982.5
+offset_right = 600.0
+offset_bottom = 300.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.3)
-texture_under = ExtResource("14_f5350")
-texture_progress = ExtResource("12_f5350")
+texture_under = ExtResource("11_xdpc2")
+texture_progress = ExtResource("11_7ie5b")
 script = ExtResource("12_hvhng")
 player = NodePath("../../../../Player")
 
@@ -126,6 +125,7 @@ offset_bottom = -89.5
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("14_7ie5b")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="vida/MarginContainer" node_paths=PackedStringArray("player")]
 layout_mode = 2

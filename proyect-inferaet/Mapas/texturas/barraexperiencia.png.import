@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6upq3dkywy3b"
-path="res://.godot/imported/barrarexper2.png-0e855ec290dba3b0a04901dc606906c4.ctex"
+uid="uid://dnxrx3dnub82u"
+path="res://.godot/imported/barraexperiencia.png-7ec2b5f9f286fc303814d7635b1a5988.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mapas/texturas/barrarexper2.png"
-dest_files=["res://.godot/imported/barrarexper2.png-0e855ec290dba3b0a04901dc606906c4.ctex"]
+source_file="res://Mapas/texturas/barraexperiencia.png"
+dest_files=["res://.godot/imported/barraexperiencia.png-7ec2b5f9f286fc303814d7635b1a5988.ctex"]
 
 [params]
 

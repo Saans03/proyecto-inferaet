@@ -13,7 +13,7 @@ func _ready():
 	label.text = "00:00"
 	
 	# Forzar color visible (evita texto invisible)
-	label.add_theme_color_override("font_color", Color.GOLDENROD)
+	label.add_theme_color_override("font_color", Color.ORANGE_RED)
 	
 	timer.wait_time = 1.0
 	timer.one_shot = false
