@@ -4,6 +4,7 @@ class_name armaBase
 @export var level := 1
 @export var damage := 500
 @export var cooldown := 0.8
+@export var range:=300
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hitbox: Hitbox = $Hitbox

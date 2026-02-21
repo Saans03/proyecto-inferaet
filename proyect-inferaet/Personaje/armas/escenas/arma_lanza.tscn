@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ckimt4mnjqofa"]
+
+[ext_resource type="Texture2D" uid="uid://633ur824fjr4" path="res://Personaje/armas/texturas/TridenteSangre.png" id="1_g80h8"]
+[ext_resource type="Script" uid="uid://b2vl8fic3sk4g" path="res://Personaje/armas/arma_lanza.gd" id="1_y3l7c"]
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_hvlnd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3l7c"]
+radius = 87.0
+height = 653.83057
+
+[node name="ArmaLanza" type="Node2D" unique_id=1132079425]
+script = ExtResource("1_y3l7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=698144295]
+position = Vector2(-1.0000019, 2.3841858e-07)
+rotation = 0.5235988
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_g80h8")
+
+[node name="Hitbox" parent="." unique_id=1486097744 instance=ExtResource("2_hvlnd")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CapsuleShape2D_y3l7c")
+
+[node name="Timer" type="Timer" parent="." unique_id=2144484392]
+
+[editable path="Hitbox"]

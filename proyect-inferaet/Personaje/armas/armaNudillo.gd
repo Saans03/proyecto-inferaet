@@ -1,5 +1,4 @@
 extends armaBase
-@export var range := 300.0
 @export var slash_distance := 80.0
 @export var attack_duration := 0.25
 
@@ -8,6 +7,7 @@ func _ready():
 	level = 1
 	damage = 3000
 	cooldown = 0.2
+	range = 300
 
 func _find_target():
 	var player: Player = get_parent()

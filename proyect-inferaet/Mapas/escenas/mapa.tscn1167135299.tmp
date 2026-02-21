@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cdb65b23ty00f" path="res://Personaje/escenas/player.tscn" id="3_kk1kb"]
 [ext_resource type="PackedScene" uid="uid://c1m1eal8optkg" path="res://Escenas/base/menu_pausa.tscn" id="4_iywlr"]
 [ext_resource type="Script" uid="uid://bci8s0f50kb75" path="res://Escenas/Scripts/menu_pausa.gd" id="5_37ejg"]
+[ext_resource type="Script" uid="uid://bndje7u0pvpq0" path="res://Personaje/armas/armaNudillo.gd" id="6_37ejg"]
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
-[ext_resource type="PackedScene" uid="uid://ckimt4mnjqofa" path="res://Personaje/armas/escenas/arma_lanza.tscn" id="7_xdpc2"]
+[ext_resource type="PackedScene" uid="uid://ckimt4mnjqofa" path="res://Personaje/armas/arma_lanza.tscn" id="7_xdpc2"]
 [ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="8_nj5h0"]
 [ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="9_iywlr"]
 [ext_resource type="Texture2D" uid="uid://chgsadekbmw78" path="res://Mapas/texturas/barraexperiencia2.png" id="11_7ie5b"]
@@ -65,14 +66,11 @@ HurtBoxType = 0
 scale = Vector2(1.1353647, 1.67948)
 
 [node name="AutoWeapon" parent="Player" index="5"]
-visible = true
+script = ExtResource("6_37ejg")
+slash_distance = 80.0
+attack_duration = 0.25
 
 [node name="ArmaLanza" parent="Player" unique_id=1132079425 instance=ExtResource("7_xdpc2")]
-damage = 80000
-
-[node name="Hitbox" parent="Player/ArmaLanza" index="1" unique_id=1486097744]
-collision_layer = 8
-collision_mask = 8
 
 [node name="EnemySpawner" parent="." unique_id=2119469179 instance=ExtResource("6_f5350")]
 spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_kk1kb"), SubResource("Resource_37ejg")])
