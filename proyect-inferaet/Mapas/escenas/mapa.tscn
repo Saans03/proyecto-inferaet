@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=21 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://bupsjjnggg8fk" path="res://Mapas/texturas/Captura de pantalla 2026-02-05 095107.png" id="2_1all6"]
@@ -9,13 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
 [ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="8_nj5h0"]
-[ext_resource type="Texture2D" uid="uid://bkwavngm4yla" path="res://Personaje/texturas/barraVida/HealthBarUnder.png" id="9_7ie5b"]
 [ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="9_iywlr"]
-[ext_resource type="Texture2D" uid="uid://b4xmh6tbbbj5r" path="res://Personaje/texturas/barraVida/healthBarProgress.png" id="10_xdpc2"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
 [ext_resource type="Texture2D" uid="uid://b6upq3dkywy3b" path="res://Mapas/texturas/barrarexper2.png" id="12_f5350"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
 [ext_resource type="Texture2D" uid="uid://db16bll3ngjog" path="res://Mapas/texturas/barraexper (1).png" id="14_f5350"]
+[ext_resource type="Texture2D" uid="uid://bme37myc5gw8p" path="res://Mapas/texturas/barravida (1).png" id="14_kfu48"]
+[ext_resource type="Texture2D" uid="uid://ca8h6l5v4unw0" path="res://Mapas/texturas/barravida (2).png" id="14_nj5h0"]
+[ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="17_kfu48"]
+[ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
 
 [sub_resource type="Resource" id="Resource_kk1kb"]
 script = ExtResource("7_kfu48")
@@ -37,6 +39,7 @@ metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 script = ExtResource("1_1all6")
 
 [node name="Fondo" type="Sprite2D" parent="."]
+visible = false
 texture_repeat = 2
 texture = ExtResource("2_1all6")
 region_enabled = true
@@ -72,26 +75,35 @@ spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_kk1kb"), SubResour
 
 [node name="exp" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="exp"]
-layout_direction = 3
-layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 0.3
-offset_bottom = 0.3
+[node name="MarginContainer" type="MarginContainer" parent="exp"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/Control" node_paths=PackedStringArray("player")]
-layout_mode = 0
-offset_right = 1536.0
-offset_bottom = 161.0
+[node name="Control" type="Control" parent="exp/MarginContainer"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/MarginContainer/Control" node_paths=PackedStringArray("player")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -973.5
+offset_top = 6.0
+offset_right = 625.0
+offset_bottom = 167.0
+grow_horizontal = 2
 scale = Vector2(0.8, 0.3)
 texture_under = ExtResource("14_f5350")
 texture_progress = ExtResource("12_f5350")
 script = ExtResource("12_hvhng")
-player = NodePath("../../../Player")
+player = NodePath("../../../../Player")
 
-[node name="ProgressBar" type="ProgressBar" parent="exp/Control/TextureProgressBar"]
+[node name="ProgressBar" type="ProgressBar" parent="exp/MarginContainer/Control/TextureProgressBar"]
 visible = false
 layout_mode = 1
 anchors_preset = 10
@@ -102,46 +114,70 @@ show_percentage = false
 
 [node name="vida" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="vida"]
-visible = false
-anchors_preset = 1
+[node name="MarginContainer" type="MarginContainer" parent="vida"]
+anchors_preset = 6
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-offset_left = -77.0
-offset_top = 23.0
-offset_right = 1.0
-offset_bottom = 50.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -356.5
+offset_bottom = -89.5
 grow_horizontal = 0
-value = 100.0
+grow_vertical = 2
+size_flags_horizontal = 4
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="vida" node_paths=PackedStringArray("player")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -239.0
-offset_top = 63.0
-offset_right = 1.0
-offset_bottom = 151.0
-grow_horizontal = 0
-texture_under = ExtResource("9_7ie5b")
-texture_progress = ExtResource("10_xdpc2")
+[node name="TextureProgressBar" type="TextureProgressBar" parent="vida/MarginContainer" node_paths=PackedStringArray("player")]
+layout_mode = 2
+max_value = 80.0
+texture_under = ExtResource("14_nj5h0")
+texture_progress = ExtResource("14_kfu48")
 script = ExtResource("11_rh4xi")
-player = NodePath("../../Player")
+player = NodePath("../../../Player")
+
+[node name="ProgressBar" type="ProgressBar" parent="vida/MarginContainer"]
+visible = false
+layout_mode = 2
+value = 100.0
 
 [node name="timer" type="CanvasLayer" parent="."]
 
-[node name="Timer" type="Timer" parent="timer"]
-autostart = true
+[node name="Control" type="Control" parent="timer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 138.0
+offset_right = 20.0
+offset_bottom = 209.0
+grow_horizontal = 2
+script = ExtResource("17_nj5h0")
 
-[node name="Label" type="Label" parent="timer"]
-offset_left = 396.0
-offset_top = 86.0
-offset_right = 577.0
-offset_bottom = 139.0
+[node name="Timer" type="Timer" parent="timer/Control"]
+
+[node name="Label" type="Label" parent="timer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -11.0
+offset_right = 90.5
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_kfu48")
+theme_override_font_sizes/font_size = 18
+text = "eeee"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Continuar" to="Player/Camera2D/CanvasLayer/MenuPausa" method="_on_continuar_pressed"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Salir" to="Player/Camera2D/CanvasLayer/MenuPausa" method="_on_salir_pressed"]
-[connection signal="timeout" from="timer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="timer/Control/Timer" to="timer/Control" method="_on_timer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/Camera2D/CanvasLayer/MenuPausa"]
