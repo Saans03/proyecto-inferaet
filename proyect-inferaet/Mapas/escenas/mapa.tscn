@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
 [ext_resource type="PackedScene" uid="uid://ckimt4mnjqofa" path="res://Personaje/armas/escenas/arma_lanza.tscn" id="7_xdpc2"]
-[ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="8_nj5h0"]
-[ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="9_iywlr"]
 [ext_resource type="Texture2D" uid="uid://chgsadekbmw78" path="res://Mapas/texturas/barraexperiencia2.png" id="11_7ie5b"]
+[ext_resource type="PackedScene" uid="uid://co2tejpdi45oj" path="res://Enemigos/escenas/EnemigoEsqueletoNegro.tscn" id="11_owe4l"]
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
 [ext_resource type="Texture2D" uid="uid://dnxrx3dnub82u" path="res://Mapas/texturas/barraexperiencia.png" id="11_xdpc2"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
@@ -20,20 +19,12 @@
 [ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="17_kfu48"]
 [ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
 
-[sub_resource type="Resource" id="Resource_kk1kb"]
+[sub_resource type="Resource" id="Resource_nj5h0"]
 script = ExtResource("7_kfu48")
 time_end = 60
-enemy_scene = ExtResource("8_nj5h0")
-enemy_num = 5
-enemy_spawn_delay = 2
-metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
-
-[sub_resource type="Resource" id="Resource_37ejg"]
-script = ExtResource("7_kfu48")
-time_end = 120
-enemy_scene = ExtResource("9_iywlr")
+enemy_scene = ExtResource("11_owe4l")
 enemy_num = 3
-enemy_spawn_delay = 3
+enemy_spawn_delay = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [node name="Mapa" type="Node2D" unique_id=2020609259]
@@ -61,7 +52,7 @@ script = ExtResource("5_37ejg")
 [node name="HurtBox" parent="Player" index="4"]
 HurtBoxType = 0
 
-[node name="CollisionShape2D" parent="Player/HurtBox" index="0"]
+[node name="CollisionShape2D" parent="Player/HurtBox" index="0" unique_id=1705401529]
 scale = Vector2(1.1353647, 1.67948)
 
 [node name="AutoWeapon" parent="Player" index="5"]
@@ -75,7 +66,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="EnemySpawner" parent="." unique_id=2119469179 instance=ExtResource("6_f5350")]
-spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_kk1kb"), SubResource("Resource_37ejg")])
+spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_nj5h0")])
 
 [node name="exp" type="CanvasLayer" parent="." unique_id=1105914022]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuj3vndxu71ax"]
+[gd_scene format=3 uid="uid://cuj3vndxu71ax"]
 
-[ext_resource type="Script" uid="uid://cfvywcwp6yfkj" path="res://Enemigos/escenas/enemigo_gordo.gd" id="1_d2u6c"]
+[ext_resource type="Script" uid="uid://cfvywcwp6yfkj" path="res://Enemigos/scripts/enemigo_gordo.gd" id="1_d2u6c"]
 [ext_resource type="Texture2D" uid="uid://vgf6x8qcj6a3" path="res://Enemigos/texturas/mob2.1.png" id="1_fdtxd"]
 [ext_resource type="PackedScene" uid="uid://v7e5xctypu71" path="res://Enemigos/escenas/ExpOrb.tscn" id="2_5fqvh"]
 [ext_resource type="Texture2D" uid="uid://b58ncvvww6bd4" path="res://Enemigos/texturas/mob2.2.png" id="2_d2u6c"]

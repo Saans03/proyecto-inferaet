@@ -53,18 +53,29 @@ func _attack(target):
 	distance_travelled = 0.0
 
 	while distance_travelled < max_distance and attack_active:
-		
-		
+
+		var player_node = get_parent()
+		if player_node == null or not is_instance_valid(player_node):
+			break
+
+		var tree = get_tree()
+		if tree == null:
+			break
+
 		var delta = get_process_delta_time()
 		var movement = direction * speed * delta
-		
+	
 		global_position += movement
 		distance_travelled += movement.length()
 
-		await get_tree().process_frame
+		await tree.process_frame
 
 	_end_attack()
-	await get_tree().create_timer(cooldown).timeout
+
+	var tree = get_tree()
+	if tree:
+		await tree.create_timer(cooldown).timeout
+
 	attacking = false
 
 func _end_attack():
