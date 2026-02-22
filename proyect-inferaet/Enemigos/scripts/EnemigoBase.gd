@@ -9,6 +9,7 @@ class_name EnemigoBase
 
 @onready var anim: AnimatedSprite2D = $Sprite
 var player : Player
+var is_dead := false
 
 
 func _ready():
@@ -22,7 +23,10 @@ func _exit_tree():
 	
 	
 func _physics_process(_delta):
-
+	
+	if is_dead:
+		return
+		
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
 		return
@@ -43,11 +47,20 @@ func _on_hurt_box_received_damage(damage):
 	hp -= damage
 
 	if hp <= 0:
-		anim.play("death")
 		die()
 
 
 func die():
+	
+	is_dead = true
+
+	velocity = Vector2.ZERO
+	move_and_slide()
+
+	anim.play("death")
+
+	await get_tree().create_timer(0.5).timeout
+
 	drop_exp()
 	queue_free()
 

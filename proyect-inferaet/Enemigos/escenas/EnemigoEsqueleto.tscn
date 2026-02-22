@@ -61,7 +61,7 @@ exp_orb_scene = ExtResource("2_4xvfw")
 position = Vector2(3, -19)
 scale = Vector2(0.11715156, 0.12999828)
 sprite_frames = SubResource("SpriteFrames_ij6vw")
-animation = &"walk"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216695145]
 position = Vector2(-1, 1)
