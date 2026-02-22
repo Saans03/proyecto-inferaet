@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckimt4mnjqofa"]
 
 [ext_resource type="Texture2D" uid="uid://633ur824fjr4" path="res://Personaje/armas/texturas/TridenteSangre.png" id="1_g80h8"]
-[ext_resource type="Script" uid="uid://b2vl8fic3sk4g" path="res://Personaje/armas/arma_lanza.gd" id="1_y3l7c"]
+[ext_resource type="Script" uid="uid://b2vl8fic3sk4g" path="res://Personaje/armas/scripts/arma_lanza.gd" id="1_y3l7c"]
 [ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_hvlnd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3l7c"]
