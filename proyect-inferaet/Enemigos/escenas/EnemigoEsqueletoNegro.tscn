@@ -84,5 +84,7 @@ collision_mask = 4
 position = Vector2(-8, -5.5)
 shape = SubResource("RectangleShape2D_uru5x")
 
+[connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
+
 [editable path="HurtBox"]
 [editable path="Hitbox"]
