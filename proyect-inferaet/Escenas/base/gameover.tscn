@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr287oyp3wxb4"]
+[gd_scene load_steps=10 format=3 uid="uid://dr287oyp3wxb4"]
 
 [ext_resource type="Script" uid="uid://d2c0407vbfmjs" path="res://Escenas/Scripts/gameover.gd" id="1_tpdqf"]
 [ext_resource type="Texture2D" uid="uid://dyw8uypudgejw" path="res://Escenas/texturas/fondos/castlefoto.jpg" id="2_ff4iq"]
+[ext_resource type="Texture2D" uid="uid://bedex68cv436v" path="res://Escenas/texturas/gameove/gameover1Screen1.png" id="3_ch28v"]
+[ext_resource type="Texture2D" uid="uid://bm0wpmbshtdl0" path="res://Escenas/texturas/gameove/gameover1Screen2.png" id="4_4dtff"]
+[ext_resource type="Texture2D" uid="uid://dqdjoh6rubii7" path="res://Escenas/texturas/gameove/gameover1Screen3.png" id="5_naecf"]
+[ext_resource type="Texture2D" uid="uid://cdi7y1ymif3f" path="res://Escenas/texturas/gameove/gameover1Screen4.png" id="6_rv4rn"]
+[ext_resource type="Texture2D" uid="uid://e3lut80hb7eu" path="res://Escenas/texturas/gameove/gameover1Screen5.png" id="7_5tqwi"]
+[ext_resource type="Texture2D" uid="uid://c1q8vt128kd6n" path="res://Escenas/texturas/gameove/gameover1Screen6.png" id="8_g7mt0"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_4ljuq"]
+frames = 6
+one_shot = true
+frame_0/texture = ExtResource("3_ch28v")
+frame_1/texture = ExtResource("4_4dtff")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_naecf")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_rv4rn")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_5tqwi")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("8_g7mt0")
+frame_5/duration = 1.0
 
 [node name="gameover" type="Control"]
 layout_mode = 3
@@ -21,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4554031, 1.0769255e-06, 2.1658838e-07, 1)
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,50 +51,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ff4iq")
 
-[node name="PantallaInicio" type="Button" parent="ColorRect/TextureRect"]
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.0
+offset_top = -35.0
+offset_right = 337.0
+offset_bottom = 317.0
+grow_horizontal = 2
+texture = SubResource("AnimatedTexture_4ljuq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -83.0
-offset_top = -243.0
-offset_right = 83.0
-offset_bottom = -168.0
+offset_left = -153.75
+offset_top = -211.0
+offset_right = 153.75
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="PantallaInicio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "Pantalla Inicio"
 
-[node name="Salir" type="Button" parent="ColorRect/TextureRect"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -83.0
-offset_top = -168.0
-offset_right = 83.0
-offset_bottom = -93.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "Salir"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Game Over"
-
-[connection signal="pressed" from="ColorRect/TextureRect/PantallaInicio" to="." method="_on_pantalla_inicio_pressed"]
-[connection signal="pressed" from="ColorRect/TextureRect/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/PantallaInicio" to="." method="_on_pantalla_inicio_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
