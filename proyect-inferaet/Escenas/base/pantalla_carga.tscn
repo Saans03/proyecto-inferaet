@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdiovm7nndnar"]
+[gd_scene load_steps=19 format=3 uid="uid://bdiovm7nndnar"]
 
 [ext_resource type="Script" uid="uid://bjrmrsloygdxc" path="res://Escenas/Scripts/pantalla_carga.gd" id="1_xebw4"]
-[ext_resource type="Texture2D" uid="uid://1hsijphd3ouh" path="res://Escenas/texturas/fondos/imagen2.png" id="2_aahbd"]
+[ext_resource type="Texture2D" uid="uid://c2tmce17ogbbd" path="res://Escenas/texturas/fondos/entrada.jpg" id="2_6r1w3"]
 [ext_resource type="Script" uid="uid://ddslmi6fw5dbx" path="res://Escenas/Scripts/label.gd" id="3_b5qvd"]
+[ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="3_lotr6"]
 [ext_resource type="Texture2D" uid="uid://d27b6c4l1j7wf" path="res://Escenas/texturas/ishmael/fish-groove_100ms_2.png" id="4_holed"]
 [ext_resource type="Texture2D" uid="uid://hk2lyc7pd5at" path="res://Escenas/texturas/ishmael/fish-groove_100ms_3.png" id="5_fema8"]
 [ext_resource type="Texture2D" uid="uid://bealrbaodwag3" path="res://Escenas/texturas/ishmael/fish-groove_100ms_4.png" id="6_36duu"]
@@ -69,12 +70,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -7.0
-offset_right = -5.0
-offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_xebw4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -93,7 +92,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_aahbd")
+texture = ExtResource("2_6r1w3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -107,6 +106,7 @@ offset_top = -48.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.9254902, 0, 0.13725491, 1)
+theme_override_fonts/font = ExtResource("3_lotr6")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_b5qvd")
@@ -114,7 +114,8 @@ script = ExtResource("3_b5qvd")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(571, 356)
+position = Vector2(213.00002, 251.99997)
+scale = Vector2(0.9745989, 0.9800001)
 sprite_frames = SubResource("SpriteFrames_pbmcd")
 autoplay = "default"
 frame_progress = 0.05713116

@@ -17,7 +17,9 @@ var resolutions = [
 @onready var master_slider = find_child("MasterSlider", true, false)
 @onready var music_slider = find_child("MusicSlider", true, false)
 @onready var sfx_slider = find_child("SFXSlider", true, false)
- 
+
+# ✅ NUEVO — detectar si se abrió desde pausa
+var opened_from_pause := false
  
 func _ready():
  
@@ -48,7 +50,10 @@ func _ready():
 		sfx_slider.connect("value_changed", Callable(self, "_on_sfx_slider_value_changed"))
  
 	load_settings()
- 
+
+	# ✅ NUEVO — comprobar si existe menú pausa en escena actual
+	if get_tree().current_scene.has_node("Player/Camera2D/CanvasLayer/MenuPausa"):
+		opened_from_pause = true
  
 # =====================================================
 # ==================== SETTINGS =======================
@@ -86,14 +91,13 @@ func load_settings():
 		window_mode = config.get_value("video", "window_mode", 0)
 	if window_mode_option != null:
 		window_mode_option.select(window_mode)
-		_apply_window_mode(window_mode) # 👈 Aplicar modo al cargar
+		_apply_window_mode(window_mode)
  
 	var resolution_index = 0
 	if err == OK:
 		resolution_index = config.get_value("video", "resolution", 0)
 	if resolution_option != null:
 		resolution_option.select(resolution_index)
- 
  
 func save_settings():
 	var config = ConfigFile.new()
@@ -113,7 +117,6 @@ func save_settings():
  
 	config.save("user://settings.cfg")
  
- 
 # =====================================================
 # ==================== VIDEO ==========================
 # =====================================================
@@ -121,7 +124,6 @@ func save_settings():
 func _on_resolution_option_item_selected(index):
 	_apply_resolution(index, true)
 	save_settings()
- 
  
 func _apply_resolution(index, force_windowed := true):
 	if index >= 0 and index < resolutions.size():
@@ -131,30 +133,23 @@ func _apply_resolution(index, force_windowed := true):
 			await get_tree().process_frame
 		DisplayServer.window_set_size(resolutions[index])
  
- 
 func _on_window_mode_selected(index):
 	_apply_window_mode(index)
 	save_settings()
  
- 
 func _apply_window_mode(index):
 	match index:
-		0: # Ventana
+		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
- 
-			# ✅ Activar selector de resolución
 			if resolution_option != null:
 				resolution_option.disabled = false
  
-		1: # Pantalla completa
+		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
- 
-			# ✅ Desactivar selector de resolución
 			if resolution_option != null:
 				resolution_option.disabled = true
- 
  
 # =====================================================
 # ==================== AUDIO ==========================
@@ -163,40 +158,39 @@ func _apply_window_mode(index):
 func _apply_master_volume(value):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
  
- 
 func _apply_music_volume(value):
 	var bus = AudioServer.get_bus_index("Music")
 	if bus != -1:
 		AudioServer.set_bus_volume_db(bus, linear_to_db(value))
- 
  
 func _apply_sfx_volume(value):
 	var bus = AudioServer.get_bus_index("SFX")
 	if bus != -1:
 		AudioServer.set_bus_volume_db(bus, linear_to_db(value))
  
- 
 func _on_master_slider_value_changed(value):
 	_apply_master_volume(value)
 	save_settings()
- 
  
 func _on_music_slider_value_changed(value):
 	_apply_music_volume(value)
 	save_settings()
  
- 
 func _on_sfx_slider_value_changed(value):
 	_apply_sfx_volume(value)
 	save_settings()
- 
  
 # =====================================================
 # ================= CAMBIO ESCENAS ====================
 # =====================================================
  
 func _on_salir_pressed() -> void:
-	SceneManager.change_packed_screen(change_scene)
+	if opened_from_pause:
+		queue_free()
+		var menu_pausa = get_tree().current_scene.get_node("Player/Camera2D/CanvasLayer/MenuPausa")
+		menu_pausa.show()
+	else:
+		SceneManager.change_packed_screen(change_scene)
  
 func _on_controles_pressed() -> void:
 	SceneManager.change_packed_screen(change_scene1)

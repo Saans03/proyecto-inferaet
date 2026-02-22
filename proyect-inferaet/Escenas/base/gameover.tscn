@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr287oyp3wxb4"]
 
-[ext_resource type="Texture2D" uid="uid://bct050nyntasy" path="res://Escenas/texturas/fondos/70fc5c22-d5d2-444c-8d4b-ec6d9fa97a67.jpg" id="1_4nh4k"]
 [ext_resource type="Script" uid="uid://d2c0407vbfmjs" path="res://Escenas/Scripts/gameover.gd" id="1_tpdqf"]
+[ext_resource type="Texture2D" uid="uid://dyw8uypudgejw" path="res://Escenas/texturas/fondos/castlefoto.jpg" id="2_ff4iq"]
 
 [node name="gameover" type="Control"]
 layout_mode = 3
@@ -28,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_4nh4k")
+texture = ExtResource("2_ff4iq")
 
 [node name="PantallaInicio" type="Button" parent="ColorRect/TextureRect"]
 layout_mode = 1

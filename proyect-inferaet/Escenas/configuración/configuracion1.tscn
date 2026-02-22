@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvd27vmx40fa"]
 
 [ext_resource type="Script" uid="uid://44yj5qps067q" path="res://Escenas/Scripts/configuracion_1.gd" id="1_dr5u0"]
-[ext_resource type="Texture2D" uid="uid://duwp3c365f83l" path="res://Escenas/texturas/fondos/Panorama transmitido por la sangre _ r_bloodborne.png" id="2_ujfoy"]
+[ext_resource type="Texture2D" uid="uid://cto8igg30dgwh" path="res://Escenas/texturas/fondos/cityfoto.jpg" id="2_0op4s"]
 [ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="3_0op4s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tgcr"]
@@ -32,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ujfoy")
+texture = ExtResource("2_0op4s")
 expand_mode = 1
 
 [node name="Salir" type="Button" parent="."]
