@@ -58,10 +58,11 @@ script = ExtResource("1_kw0ff")
 exp_orb_scene = ExtResource("2_4xvfw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2101962861]
-position = Vector2(3, -19)
+position = Vector2(3, -17)
 scale = Vector2(0.11715156, 0.12999828)
 sprite_frames = SubResource("SpriteFrames_ij6vw")
 animation = &"death"
+frame_progress = 0.02324447
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216695145]
 position = Vector2(-1, 1)

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cug60214p43vf"]
+
+[ext_resource type="Script" uid="uid://bcf02xka1u6cr" path="res://Enemigos/escenas/ishmael.gd" id="1_bh5i7"]
+[ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="1_m6b71"]
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_febkc"]
+[ext_resource type="Texture2D" uid="uid://cpxfhlgpdpw62" path="res://Enemigos/texturas/xplosion1.png" id="2_jdnya"]
+[ext_resource type="Texture2D" uid="uid://c88rpbc4fabmu" path="res://Enemigos/texturas/Ishmaelboss1.png" id="2_y2g7u"]
+[ext_resource type="Texture2D" uid="uid://3guupiawd4h7" path="res://Enemigos/texturas/Ishmaelboss2.png" id="3_8ji5k"]
+[ext_resource type="Texture2D" uid="uid://88mjlhrt5osk" path="res://Enemigos/texturas/xplosion2.png" id="3_veen0"]
+[ext_resource type="Texture2D" uid="uid://dpcsehet1dg1a" path="res://Enemigos/texturas/xplosion3.png" id="4_sy42c"]
+[ext_resource type="Texture2D" uid="uid://de0wf0ng1eyff" path="res://Enemigos/texturas/xplosion4.png" id="5_ms41s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnvpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jdnya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_veen0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sy42c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ms41s")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y2g7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8ji5k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jdnya"]
+radius = 133.0
+height = 266.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ii5pf"]
+radius = 177.0
+height = 404.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhw13"]
+radius = 171.0
+height = 372.0
+
+[node name="ishmael" type="CharacterBody2D" unique_id=420826719]
+script = ExtResource("1_bh5i7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=207355999]
+position = Vector2(-3.0517578e-05, 1)
+scale = Vector2(0.5620117, 0.5869141)
+sprite_frames = SubResource("SpriteFrames_hnvpr")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=81085221]
+visible = false
+position = Vector2(42, 33)
+shape = SubResource("CapsuleShape2D_jdnya")
+
+[node name="HurtBox" parent="." unique_id=1625344855 instance=ExtResource("1_m6b71")]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1705401529]
+position = Vector2(20, 18)
+shape = SubResource("CapsuleShape2D_ii5pf")
+
+[node name="Hitbox" parent="." unique_id=466129631 instance=ExtResource("2_febkc")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(8, 23)
+shape = SubResource("CapsuleShape2D_uhw13")
+
+[connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
+
+[editable path="HurtBox"]
+[editable path="Hitbox"]
