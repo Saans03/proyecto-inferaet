@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cea0785yyx1da"]
 
-[ext_resource type="Script" uid="uid://bndje7u0pvpq0" path="res://Personaje/armas/armaNudillo.gd" id="1_of6or"]
+[ext_resource type="Script" uid="uid://bndje7u0pvpq0" path="res://Personaje/armas/scripts/armaNudillo.gd" id="1_of6or"]
 [ext_resource type="Texture2D" uid="uid://scv5ftwl54dm" path="res://Personaje/armas/texturas/sonico bom1.png" id="2_8lon8"]
 [ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_dmi2b"]
 

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dsw0k8actsled"]
+
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="1_qh388"]
+[ext_resource type="Script" uid="uid://bl5uxdh7cmelw" path="res://Personaje/armas/scripts/arma_aura.gd" id="1_wel4l"]
+[ext_resource type="Texture2D" uid="uid://dgcu48o3xsmii" path="res://Personaje/armas/texturas/Aura.png" id="2_86d7g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u01t3"]
+
+[node name="ArmaAura" type="Node2D" unique_id=490977804]
+script = ExtResource("1_wel4l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1437796940]
+position = Vector2(4.7683716e-07, -2.3841858e-07)
+scale = Vector2(0.050632913, 0.053097345)
+texture = ExtResource("2_86d7g")
+
+[node name="Hitbox" parent="." unique_id=403369786 instance=ExtResource("1_qh388")]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_u01t3")
+
+[node name="Timer" type="Timer" parent="." unique_id=1184594928]
+
+[editable path="Hitbox"]
