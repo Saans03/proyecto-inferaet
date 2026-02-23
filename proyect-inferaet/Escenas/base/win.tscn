@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b35ybet8lnuo2"]
 
 [ext_resource type="Script" uid="uid://c8oisrea50100" path="res://Escenas/Scripts/win.gd" id="1_k8gt6"]
-[ext_resource type="AudioStream" uid="uid://dkmqkkf3b14sk" path="res://audio/menuPrincipal2.mp3" id="3_gdgo8"]
+[ext_resource type="AudioStream" uid="uid://cui2jlkrnw20m" path="res://audio/ff.mp3" id="2_bnpad"]
 [ext_resource type="Texture2D" uid="uid://7c20rk7le6ce" path="res://Escenas/texturas/fondos/imagen.png" id="3_ghfpb"]
 [ext_resource type="Texture2D" uid="uid://c6padj3hu4bw4" path="res://Escenas/texturas/fondos/winner.png" id="4_bnpad"]
 [ext_resource type="Texture2D" uid="uid://bf1oe2j283jpt" path="res://Escenas/texturas/fondos/winner2.png" id="5_c2px3"]
@@ -22,7 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_k8gt6")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_gdgo8")
+stream = ExtResource("2_bnpad")
 volume_db = -65.0
 autoplay = true
 bus = &"Music"

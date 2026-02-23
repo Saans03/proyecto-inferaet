@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=28 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
@@ -26,6 +26,22 @@
 a = Vector2(-408.83966, 9.5711975)
 b = Vector2(-401.92773, 559.3833)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_owe4l"]
+a = Vector2(-22.118073, 361.93304)
+b = Vector2(-12.786987, -186.8156)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2ciuj"]
+a = Vector2(406.0749, 12.761597)
+b = Vector2(40.434696, 18.078918)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tnasr"]
+a = Vector2(-409.53085, 12.761597)
+b = Vector2(62.99661, 19.44107)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gjed4"]
+a = Vector2(-400.19977, 561.15576)
+b = Vector2(397.435, 562.9282)
+
 [sub_resource type="Resource" id="Resource_nj5h0"]
 script = ExtResource("7_kfu48")
 time_end = 60
@@ -45,14 +61,27 @@ texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-22, 0)
-scale = Vector2(2.8935547, 2.8209636)
+position = Vector2(24, -1700)
+scale = Vector2(6.968628, 5.409668)
 texture = ExtResource("3_owe4l")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 shape = SubResource("SegmentShape2D_rh4xi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(419.20752, 201.34964)
+shape = SubResource("SegmentShape2D_owe4l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("SegmentShape2D_2ciuj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("SegmentShape2D_tnasr")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("SegmentShape2D_gjed4")
 
 [node name="Player" parent="." instance=ExtResource("3_kk1kb")]
 collision_layer = 2
