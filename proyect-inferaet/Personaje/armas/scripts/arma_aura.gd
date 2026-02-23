@@ -54,3 +54,12 @@ func _update_visuals():
 		if texture_size > 0:
 			var scale_factor = desired_diameter / texture_size
 			sprite.scale = Vector2(scale_factor, scale_factor)
+			
+			
+func aplicarStatsNivel():
+
+	damage += 20
+	range += 20
+	
+	hitbox.damage = damage
+	_update_visuals()

@@ -85,3 +85,11 @@ func _end_attack():
 	hitbox.disable_hitbox()
 	attack_active = false
 	
+
+func aplicarStatsNivel():
+
+	damage += 15
+	cooldown *= 0.95
+	speed += 10
+	
+	hitbox.damage = damage

@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b2txjw1wwg510" path="res://Personaje/texturas/personajeprincipal4.png" id="3_eld76"]
 [ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Personaje/stats/stats_personaje.gd" id="4_dkt6k"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="5_7sfl7"]
-[ext_resource type="PackedScene" uid="uid://cea0785yyx1da" path="res://Personaje/armas/escenas/armaNudillo.tscn" id="6_kc38k"]
-[ext_resource type="Texture2D" uid="uid://bt1vd3wr6s8pa" path="res://Personaje/armas/texturas/sonico bom2.png" id="7_pke5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c46bc"]
 animations = [{
@@ -41,68 +39,39 @@ metadata/_custom_type_script = "uid://cgbkt2ernclb5"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vh8d"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qde0v"]
-radius = 15.999977
-height = 67.99991
-
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1430360668 groups=["player"]]
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_opc0b")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1054360349]
 position = Vector2(-13, 0.99999994)
 scale = Vector2(0.19351631, 0.20215856)
 sprite_frames = SubResource("SpriteFrames_c46bc")
 animation = &"walk"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=143698284]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707575199]
 position = Vector2(2.2737368e-13, 0)
 scale = Vector2(0.77161294, 1.207332)
 shape = SubResource("CapsuleShape2D_eld76")
 
-[node name="StatsComponent" type="Node2D" parent="."]
+[node name="StatsComponent" type="Node2D" parent="." unique_id=2090331891]
 script = ExtResource("3_acl8h")
 stats_template = SubResource("Resource_7sfl7")
 
-[node name="HurtBox" parent="." instance=ExtResource("5_7sfl7")]
+[node name="HurtBox" parent="." unique_id=484382253 instance=ExtResource("5_7sfl7")]
 collision_layer = 4
 collision_mask = 4
 HurtBoxType = 2
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1705401529]
 position = Vector2(-2.861023e-06, 0)
 scale = Vector2(1.1284245, 1.6764096)
 shape = SubResource("CapsuleShape2D_5vh8d")
 
-[node name="AutoWeapon" parent="." instance=ExtResource("6_kc38k")]
-visible = false
-
-[node name="Sprite2D" parent="AutoWeapon" index="0"]
-position = Vector2(0, 6)
-rotation = -2.3125641
-scale = Vector2(0.2, 0.472)
-texture = ExtResource("7_pke5p")
-flip_h = true
-flip_v = true
-
-[node name="Hitbox" parent="AutoWeapon" index="1"]
-position = Vector2(7, -16)
-rotation = 1.578153
-scale = Vector2(1.5449595, 1.8071318)
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" parent="AutoWeapon/Hitbox" index="0"]
-position = Vector2(15.999998, 6.9999995)
-rotation = -1.5725417
-shape = SubResource("CapsuleShape2D_qde0v")
-
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
 
 [editable path="HurtBox"]
-[editable path="AutoWeapon"]
-[editable path="AutoWeapon/Hitbox"]

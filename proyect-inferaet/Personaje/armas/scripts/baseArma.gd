@@ -2,6 +2,7 @@ extends Node2D
 class_name armaBase
 
 @export var level := 1
+@export var max_level := 10
 @export var damage := 500
 @export var cooldown := 0.8
 @export var range:=300
@@ -33,8 +34,18 @@ func attack_loop():
 		if get_tree() != null:
 			await get_tree().process_frame
 
+func level_up():
+	if level >= max_level:
+		return
+	
+	level +=1
+	aplicarStatsNivel()
+
 func _attack(target):
 	pass  # Las armas hijas definen el ataque
 
 func _find_target():
 	return null  # Por defecto no hay target
+
+func aplicarStatsNivel():
+	pass

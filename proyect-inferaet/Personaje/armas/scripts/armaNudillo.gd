@@ -61,3 +61,10 @@ func _attack(target):
 	hitbox.disable_hitbox()
 	visible = false
 	attacking = false
+	
+func aplicarStatsNivel():
+
+	damage += 200
+	cooldown *= 0.97
+	
+	hitbox.damage = damage
