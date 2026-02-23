@@ -218,6 +218,8 @@ text = "eeee"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/MenuPausa/MarginContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
 [connection signal="timeout" from="timer/Control/Timer" to="timer/Control" method="_on_timer_timeout"]
 
 [editable path="Player"]

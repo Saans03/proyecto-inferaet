@@ -28,3 +28,15 @@ func PauseMenu ():
 func _on_timer_timeout():
 	tiempo += 1
 	$timer/Label.text = str(tiempo)
+
+
+func _on_continuar_pressed() -> void:
+	menuPausa.hide()
+	Engine.time_scale = 1
+	pausa = false
+
+
+func _on_salir_pressed() -> void:
+	Engine.time_scale = 1
+	pausa = false
+	SceneManager.change_screen("res://Escenas/base/menu.tscn")
