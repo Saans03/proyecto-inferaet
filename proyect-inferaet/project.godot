@@ -16,17 +16,26 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="proyecto Inferaet"
 run/main_scene="uid://d0dtnmrnqheaw"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
+
+[audio]
+
+general/default_playback_type.web=0
 
 [autoload]
 
 SceneManager="*res://Escenas/Scripts/SceneManager.gd"
 EnemyManager="*res://Enemigos/scripts/EnemyManager.gd"
+ButtonSFXManager="*res://audio/ButtonSFXManager.gd"
 
 [display]
 
 window/size/mode=3
 window/size/resizable=false
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [input]
 
