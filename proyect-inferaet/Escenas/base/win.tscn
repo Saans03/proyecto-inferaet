@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b35ybet8lnuo2"]
+[gd_scene load_steps=7 format=3 uid="uid://b35ybet8lnuo2"]
 
 [ext_resource type="Script" uid="uid://c8oisrea50100" path="res://Escenas/Scripts/win.gd" id="1_k8gt6"]
-[ext_resource type="AudioStream" uid="uid://dkmqkkf3b14sk" path="res://audio/menuPrincipal2.mp3" id="3_gdgo8"]
-[ext_resource type="Texture2D" uid="uid://cddaa0lsfxgew" path="res://Escenas/texturas/fondos/fin.png" id="3_ghfpb"]
+[ext_resource type="AudioStream" uid="uid://cui2jlkrnw20m" path="res://audio/ff.mp3" id="2_bnpad"]
+[ext_resource type="Texture2D" uid="uid://7c20rk7le6ce" path="res://Escenas/texturas/fondos/imagen.png" id="3_c2px3"]
+[ext_resource type="Texture2D" uid="uid://c6padj3hu4bw4" path="res://Escenas/texturas/fondos/winner.png" id="4_2wf0a"]
+[ext_resource type="Texture2D" uid="uid://bf1oe2j283jpt" path="res://Escenas/texturas/fondos/winner2.png" id="5_oj1jl"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ea1mr"]
+frames = 2
+frame_0/texture = ExtResource("4_2wf0a")
+frame_1/texture = ExtResource("5_oj1jl")
+frame_1/duration = 1.0
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -14,7 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_k8gt6")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_gdgo8")
+stream = ExtResource("2_bnpad")
 volume_db = -65.0
 autoplay = true
 bus = &"Music"
@@ -25,9 +33,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -71.0
+offset_right = 121.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ghfpb")
+texture = ExtResource("3_c2px3")
 expand_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -50,3 +62,21 @@ text = "Pantalla Inicio"
 [node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Salir"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -204.5
+offset_right = 373.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_ea1mr")
+
+[connection signal="pressed" from="VBoxContainer/PantallaInicio" to="." method="_on_pantalla_inicio_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

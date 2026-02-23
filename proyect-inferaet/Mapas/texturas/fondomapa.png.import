@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nltta3mao33k"
-path="res://.godot/imported/imagen1.jpg-50496ab0b6f80feb0e0dd1d080d3a34d.ctex"
+uid="uid://bxiya2k75kfbr"
+path="res://.godot/imported/fondomapa.png-f43299c5488936a65a0de657343546bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Escenas/texturas/fondos/imagen1.jpg"
-dest_files=["res://.godot/imported/imagen1.jpg-50496ab0b6f80feb0e0dd1d080d3a34d.ctex"]
+source_file="res://Mapas/texturas/fondomapa.png"
+dest_files=["res://.godot/imported/fondomapa.png-f43299c5488936a65a0de657343546bf.ctex"]
 
 [params]
 
