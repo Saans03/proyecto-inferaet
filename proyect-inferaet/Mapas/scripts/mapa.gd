@@ -11,6 +11,9 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("escapeMenu"):
+		# 🔥 Bloquear ESC si configuración está abierta
+		if get_tree().current_scene.has_node("Configuracion"):
+			return
 		PauseMenu()
 
 func PauseMenu ():
