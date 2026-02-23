@@ -17,7 +17,7 @@
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_rtngf"]
 frames = 6
-speed_scale = 0.5
+speed_scale = 2.0
 frame_0/texture = ExtResource("2_7s6ng")
 frame_0/duration = 5.0
 frame_1/texture = ExtResource("3_u7hew")

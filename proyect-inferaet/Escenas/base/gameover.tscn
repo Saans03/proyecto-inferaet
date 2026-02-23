@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr287oyp3wxb4"]
+[gd_scene load_steps=11 format=3 uid="uid://dr287oyp3wxb4"]
 
 [ext_resource type="Script" uid="uid://d2c0407vbfmjs" path="res://Escenas/Scripts/gameover.gd" id="1_tpdqf"]
 [ext_resource type="Texture2D" uid="uid://dyw8uypudgejw" path="res://Escenas/texturas/fondos/castlefoto.jpg" id="2_ff4iq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdi7y1ymif3f" path="res://Escenas/texturas/gameove/gameover1Screen4.png" id="6_rv4rn"]
 [ext_resource type="Texture2D" uid="uid://e3lut80hb7eu" path="res://Escenas/texturas/gameove/gameover1Screen5.png" id="7_5tqwi"]
 [ext_resource type="Texture2D" uid="uid://c1q8vt128kd6n" path="res://Escenas/texturas/gameove/gameover1Screen6.png" id="8_g7mt0"]
+[ext_resource type="AudioStream" uid="uid://dkmqkkf3b14sk" path="res://audio/menuPrincipal2.mp3" id="9_4dtff"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_4ljuq"]
 frames = 6
@@ -83,6 +84,13 @@ text = "Pantalla Inicio"
 [node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Salir"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_4dtff")
+volume_db = -65.0
+autoplay = true
+bus = &"Music"
+parameters/looping = false
 
 [connection signal="pressed" from="VBoxContainer/PantallaInicio" to="." method="_on_pantalla_inicio_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

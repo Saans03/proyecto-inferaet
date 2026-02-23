@@ -10,32 +10,10 @@ func _on_configuracion_pressed() -> void:
 	SceneManager.change_screen("res://Escenas/configuración/configuracion1.tscn")
 
 func _ready():
-	# Primero configuramos el video
+	load_audio_settings()
 	load_video_settings()
 
-	# Esperamos 1 frame para asegurar que todo el árbol esté listo
 	await get_tree().process_frame
-
-	_start_music()
-
-
-func _start_music():
-	var music_player = $AudioStreamPlayer2D
-	
-	if music_player == null:
-		printerr("No se encontró AudioStreamPlayer2D en la escena.")
-		return
-	
-	if music_player.stream == null:
-		printerr("El AudioStreamPlayer2D no tiene stream asignado.")
-		return
-
-	music_player.bus = "Music"
-
-	# Reiniciamos el stream por seguridad
-	music_player.stop()
-	music_player.play()
-
 
 func load_video_settings():
 	var config = ConfigFile.new()
@@ -64,3 +42,24 @@ func load_video_settings():
 
 	if resolution_index >= 0 and resolution_index < resolutions.size():
 		DisplayServer.window_set_size(resolutions[resolution_index])
+		
+
+func load_audio_settings():
+	var config = ConfigFile.new()
+	var err = config.load("user://settings.cfg")
+	if err != OK:
+		return
+
+	var master_val = config.get_value("audio", "master", 1.0)
+	var music_val = config.get_value("audio", "music", 1.0)
+	var sfx_val = config.get_value("audio", "sfx", 1.0)
+
+	AudioServer.set_bus_volume_db(0, linear_to_db(master_val))
+
+	var music_bus = AudioServer.get_bus_index("Music")
+	if music_bus != -1:
+		AudioServer.set_bus_volume_db(music_bus, linear_to_db(music_val))
+
+	var sfx_bus = AudioServer.get_bus_index("SFX")
+	if sfx_bus != -1:
+		AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(sfx_val))

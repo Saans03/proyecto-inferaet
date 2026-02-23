@@ -13,35 +13,29 @@ var resolutions = [
 @onready var resolution_option = find_child("ResolucionOption", true, false)
 @onready var window_mode_option = find_child("PantallaOption", true, false)
  
-# AUDIO (solo existen en configuracion1)
 @onready var master_slider = find_child("MasterSlider", true, false)
 @onready var music_slider = find_child("MusicSlider", true, false)
 @onready var sfx_slider = find_child("SFXSlider", true, false)
 
-# ✅ NUEVO — detectar si se abrió desde pausa
 var opened_from_pause := false
  
 func _ready():
- 
-	# 🔒 Si el juego arranca en modo ventana, bloquear redimensionado
+
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
  
-	# ================= RESOLUCIÓN =================
 	if resolution_option != null:
 		resolution_option.clear()
 		for r in resolutions:
 			resolution_option.add_item(str(r.x) + "x" + str(r.y))
 		resolution_option.connect("item_selected", Callable(self, "_on_resolution_option_item_selected"))
- 
-	# ================= MODOS DE PANTALLA =================
+
 	if window_mode_option != null:
 		window_mode_option.clear()
 		window_mode_option.add_item("Ventana")
 		window_mode_option.add_item("Pantalla completa")
 		window_mode_option.connect("item_selected", Callable(self, "_on_window_mode_selected"))
- 
-	# ================= AUDIO =================
+
 	if master_slider != null:
 		master_slider.connect("value_changed", Callable(self, "_on_master_slider_value_changed"))
 	if music_slider != null:
@@ -51,19 +45,12 @@ func _ready():
  
 	load_settings()
 
-	# ✅ NUEVO — comprobar si existe menú pausa en escena actual
 	if get_tree().current_scene.has_node("Player/Camera2D/CanvasLayer/MenuPausa"):
 		opened_from_pause = true
- 
-# =====================================================
-# ==================== SETTINGS =======================
-# =====================================================
- 
 func load_settings():
 	var config = ConfigFile.new()
 	var err = config.load("user://settings.cfg")
  
-	# ===== AUDIO =====
 	if master_slider != null:
 		var master_val = 1.0
 		if err == OK:
@@ -85,7 +72,6 @@ func load_settings():
 		sfx_slider.value = sfx_val
 		_apply_sfx_volume(sfx_val)
  
-	# ===== VIDEO =====
 	var window_mode = 0
 	if err == OK:
 		window_mode = config.get_value("video", "window_mode", 0)
@@ -117,10 +103,6 @@ func save_settings():
  
 	config.save("user://settings.cfg")
  
-# =====================================================
-# ==================== VIDEO ==========================
-# =====================================================
- 
 func _on_resolution_option_item_selected(index):
 	_apply_resolution(index, true)
 	save_settings()
@@ -151,10 +133,6 @@ func _apply_window_mode(index):
 			if resolution_option != null:
 				resolution_option.disabled = true
  
-# =====================================================
-# ==================== AUDIO ==========================
-# =====================================================
- 
 func _apply_master_volume(value):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
  
@@ -179,11 +157,7 @@ func _on_music_slider_value_changed(value):
 func _on_sfx_slider_value_changed(value):
 	_apply_sfx_volume(value)
 	save_settings()
- 
-# =====================================================
-# ================= CAMBIO ESCENAS ====================
-# =====================================================
- 
+
 func _on_salir_pressed() -> void:
 	if opened_from_pause:
 		queue_free()

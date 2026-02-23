@@ -15,7 +15,6 @@ func _physics_process(delta):
 		player = get_tree().get_first_node_in_group("player")
 		return
 
-	# Movimiento hacia player (opcional)
 	global_position = global_position.lerp(player.global_position, 6 * delta)
 
 	if global_position.distance_to(player.global_position) < 20:

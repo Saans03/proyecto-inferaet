@@ -2,7 +2,7 @@ extends Area2D
 class_name Hitbox
 
 @export var damage := 1
-@export var mode := "instant" # "instant" | "continuous"
+@export var mode := "instant"
 @export var tick_rate := 0.2 
 
 var weapon = null

@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
-[ext_resource type="Texture2D" uid="uid://bupsjjnggg8fk" path="res://Mapas/texturas/Captura de pantalla 2026-02-05 095107.png" id="2_1all6"]
+[ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
 [ext_resource type="PackedScene" uid="uid://cdb65b23ty00f" path="res://Personaje/escenas/player.tscn" id="3_kk1kb"]
 [ext_resource type="PackedScene" uid="uid://c1m1eal8optkg" path="res://Escenas/base/menu_pausa.tscn" id="4_iywlr"]
 [ext_resource type="Script" uid="uid://bci8s0f50kb75" path="res://Escenas/Scripts/menu_pausa.gd" id="5_37ejg"]
@@ -34,8 +34,9 @@ script = ExtResource("1_1all6")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 texture_repeat = 2
-texture = ExtResource("2_1all6")
-region_enabled = true
+position = Vector2(279.99902, 1757)
+scale = Vector2(75.96361, 70.376884)
+texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("3_kk1kb")]

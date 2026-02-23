@@ -11,8 +11,6 @@ func _ready():
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.text = "00:00"
-	
-	# Forzar color visible (evita texto invisible)
 	label.add_theme_color_override("font_color", Color.ORANGE_RED)
 	
 	timer.wait_time = 1.0
@@ -37,6 +35,6 @@ func _update_position():
 	var mode = DisplayServer.window_get_mode()
 	
 	if mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		offset_top = 15   # posición normal
+		offset_top = 15   
 	else:
-		offset_top = 20   # baja si está en ventana
+		offset_top = 20   

@@ -18,14 +18,14 @@ func _on_area_entered(area):
 
 	match HurtBoxType:
 
-		0: # Cooldown
+		0: 
 			collision.call_deferred("set", "disabled", true)
 			disableTimer.start()
 
-		1: # HitOnce
+		1: 
 			pass
 
-		2: # DisableHitbox
+		2:
 			if area.has_method("tempdisable"):
 				area.tempdisable()
 

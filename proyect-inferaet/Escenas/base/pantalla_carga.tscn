@@ -114,6 +114,7 @@ script = ExtResource("3_b5qvd")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(213.00002, 251.99997)
 scale = Vector2(0.9745989, 0.9800001)
 sprite_frames = SubResource("SpriteFrames_pbmcd")

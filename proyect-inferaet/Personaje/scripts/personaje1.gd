@@ -10,10 +10,6 @@ signal health_changed
 signal exp_changed
 signal level_up
 
-
-# -------------------------
-# EXP SYSTEM
-# -------------------------
 @export var level := 1
 @export var current_exp := 0
 @export var exp_to_next := 10
@@ -27,7 +23,6 @@ func _ready():
 
 	stats.died.connect(_on_stats_died)
 	stats.health_changed.connect(_on_stats_health_changed)
-
 
 func _physics_process(delta):
 	movement()
