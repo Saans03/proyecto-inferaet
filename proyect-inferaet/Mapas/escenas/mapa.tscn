@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=24 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
 [ext_resource type="PackedScene" uid="uid://cdb65b23ty00f" path="res://Personaje/escenas/player.tscn" id="3_kk1kb"]
+[ext_resource type="Texture2D" uid="uid://dwm2ppn2koon" path="res://Escenas/texturas/fondos/fondomapa.png" id="3_owe4l"]
 [ext_resource type="PackedScene" uid="uid://c1m1eal8optkg" path="res://Escenas/base/menu_pausa.tscn" id="4_iywlr"]
 [ext_resource type="Script" uid="uid://bci8s0f50kb75" path="res://Escenas/Scripts/menu_pausa.gd" id="5_37ejg"]
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
@@ -21,6 +22,9 @@
 [ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
 [ext_resource type="AudioStream" uid="uid://bcxpjkawntewx" path="res://audio/Lvl1inferaet (2).mp3" id="20_xdpc2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnasr"]
+size = Vector2(584, 2698)
+
 [sub_resource type="Resource" id="Resource_nj5h0"]
 script = ExtResource("7_kfu48")
 time_end = 60
@@ -38,6 +42,29 @@ position = Vector2(279.99902, 1757)
 scale = Vector2(75.96361, 70.376884)
 texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2116.0
+offset_top = -3591.0
+offset_right = 2198.0
+offset_bottom = 1459.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_owe4l")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+top_level = true
+light_mask = 1023
+visibility_layer = 1023
+position = Vector2(-1890, -169)
+shape = SubResource("RectangleShape2D_tnasr")
 
 [node name="Player" parent="." instance=ExtResource("3_kk1kb")]
 collision_layer = 2
@@ -91,7 +118,7 @@ collision_mask = 8
 stream = ExtResource("20_xdpc2")
 volume_db = -65.0
 autoplay = true
-bus = &"SFX"
+bus = &"Music"
 parameters/looping = true
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
