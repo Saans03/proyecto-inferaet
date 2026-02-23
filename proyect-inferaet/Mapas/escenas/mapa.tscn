@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 [gd_scene format=3 uid="uid://dn3y4eppc4nk"]
-=======
-[gd_scene load_steps=28 format=3 uid="uid://dn3y4eppc4nk"]
->>>>>>> 4c808931d5572e6c1c06b68afb2299571d008254
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
 [ext_resource type="PackedScene" uid="uid://cdb65b23ty00f" path="res://Personaje/escenas/player.tscn" id="3_kk1kb"]
-[ext_resource type="Texture2D" uid="uid://dwm2ppn2koon" path="res://Escenas/texturas/fondos/fondomapa.png" id="3_owe4l"]
 [ext_resource type="PackedScene" uid="uid://c1m1eal8optkg" path="res://Escenas/base/menu_pausa.tscn" id="4_iywlr"]
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
 [ext_resource type="PackedScene" uid="uid://dsw0k8actsled" path="res://Personaje/armas/escenas/arma_aura.tscn" id="7_7ie5b"]
@@ -25,6 +20,15 @@
 [ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="17_kfu48"]
 [ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
 [ext_resource type="AudioStream" uid="uid://bcxpjkawntewx" path="res://audio/Lvl1inferaet (2).mp3" id="20_xdpc2"]
+
+[sub_resource type="Resource" id="Resource_xdpc2"]
+script = ExtResource("7_kfu48")
+time_start = 1
+time_end = 5
+enemy_scene = ExtResource("10_7ie5b")
+enemy_num = 1
+enemy_spawn_delay = 3
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rh4xi"]
 a = Vector2(-408.83966, 9.5711975)
@@ -46,14 +50,6 @@ b = Vector2(62.99661, 19.44107)
 a = Vector2(-400.19977, 561.15576)
 b = Vector2(397.435, 562.9282)
 
-[sub_resource type="Resource" id="Resource_nj5h0"]
-script = ExtResource("7_kfu48")
-time_end = 60
-enemy_scene = ExtResource("10_7ie5b")
-enemy_num = 1
-enemy_spawn_delay = 5
-metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
-
 [node name="Mapa" type="Node2D" unique_id=1527234701]
 script = ExtResource("1_1all6")
 
@@ -64,36 +60,30 @@ scale = Vector2(75.96361, 70.376884)
 texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
 
-<<<<<<< HEAD
 [node name="EnemySpawner" parent="." unique_id=718507955 instance=ExtResource("6_f5350")]
-spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_nj5h0")])
-=======
-[node name="Sprite2D" type="Sprite2D" parent="."]
+spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_xdpc2")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1472993598]
 position = Vector2(24, -1700)
 scale = Vector2(6.968628, 5.409668)
-texture = ExtResource("3_owe4l")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1055664409]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=873739196]
 shape = SubResource("SegmentShape2D_rh4xi")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=941955841]
 position = Vector2(419.20752, 201.34964)
 shape = SubResource("SegmentShape2D_owe4l")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=2026448807]
 shape = SubResource("SegmentShape2D_2ciuj")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=903603576]
 shape = SubResource("SegmentShape2D_tnasr")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1535334210]
 shape = SubResource("SegmentShape2D_gjed4")
-
-[node name="Player" parent="." instance=ExtResource("3_kk1kb")]
-collision_layer = 2
->>>>>>> 4c808931d5572e6c1c06b68afb2299571d008254
 
 [node name="Player" parent="." unique_id=1430360668 instance=ExtResource("3_kk1kb")]
 nudillo_scene = ExtResource("7_rh4xi")
@@ -141,7 +131,6 @@ script = ExtResource("12_hvhng")
 player = NodePath("../../../../Player")
 
 [node name="ProgressBar" type="ProgressBar" parent="exp/MarginContainer/Control/TextureProgressBar" unique_id=1697002747]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -216,4 +205,5 @@ vertical_alignment = 1
 [connection signal="timeout" from="timer/Control/Timer" to="timer/Control" method="_on_timer_timeout"]
 
 [editable path="Player"]
+[editable path="Player/Camera2D/CanvasLayer/MenuPausa"]
 [editable path="Player/HurtBox"]
