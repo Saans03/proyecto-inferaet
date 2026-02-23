@@ -65,8 +65,8 @@ region_rect = Rect2(0, 0, 4000, 4000)
 spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_xdpc2")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(24, -1700)
-scale = Vector2(6.968628, 5.409668)
+position = Vector2(99.999985, -2162)
+scale = Vector2(18.954216, 6.6722817)
 texture = ExtResource("6_rh4xi")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
