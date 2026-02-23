@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c88rpbc4fabmu"
-path="res://.godot/imported/Ishmaelboss1.png-6a58dc2e4927ead1f14aa1a45ce80e13.ctex"
+uid="uid://b0i00gdjcbc6r"
+path="res://.godot/imported/arponMejorado.png-f4880753f07a7c4d951ec06b282d5ff7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemigos/texturas/Ishmaelboss1.png"
-dest_files=["res://.godot/imported/Ishmaelboss1.png-6a58dc2e4927ead1f14aa1a45ce80e13.ctex"]
+source_file="res://Enemigos/armas/texturas/arponMejorado.png"
+dest_files=["res://.godot/imported/arponMejorado.png-f4880753f07a7c4d951ec06b282d5ff7.ctex"]
 
 [params]
 

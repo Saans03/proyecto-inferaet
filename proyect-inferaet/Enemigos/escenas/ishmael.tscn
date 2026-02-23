@@ -4,11 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="1_m6b71"]
 [ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="2_febkc"]
 [ext_resource type="Texture2D" uid="uid://cpxfhlgpdpw62" path="res://Enemigos/texturas/xplosion1.png" id="2_jdnya"]
-[ext_resource type="Texture2D" uid="uid://c88rpbc4fabmu" path="res://Enemigos/texturas/Ishmaelboss1.png" id="2_y2g7u"]
-[ext_resource type="Texture2D" uid="uid://3guupiawd4h7" path="res://Enemigos/texturas/Ishmaelboss2.png" id="3_8ji5k"]
+[ext_resource type="PackedScene" uid="uid://cffglmkpmiytj" path="res://Enemigos/armas/escenas/arma_burbuja.tscn" id="2_ms41s"]
+[ext_resource type="PackedScene" uid="uid://ecsxcpo25rqp" path="res://Enemigos/armas/escenas/arma_lanza_boss.tscn" id="3_ii5pf"]
 [ext_resource type="Texture2D" uid="uid://88mjlhrt5osk" path="res://Enemigos/texturas/xplosion2.png" id="3_veen0"]
 [ext_resource type="Texture2D" uid="uid://dpcsehet1dg1a" path="res://Enemigos/texturas/xplosion3.png" id="4_sy42c"]
+[ext_resource type="PackedScene" uid="uid://v7e5xctypu71" path="res://Enemigos/escenas/ExpOrb.tscn" id="4_uhw13"]
 [ext_resource type="Texture2D" uid="uid://de0wf0ng1eyff" path="res://Enemigos/texturas/xplosion4.png" id="5_ms41s"]
+[ext_resource type="Texture2D" uid="uid://bonbraiow00i5" path="res://Enemigos/texturas/Ishmaelboss1_resized.png" id="9_uhw13"]
+[ext_resource type="Texture2D" uid="uid://b402wkfkrjpx8" path="res://Enemigos/texturas/Ishmaelboss2_resized.png" id="10_psn11"]
+[ext_resource type="Texture2D" uid="uid://b42pyb20v6e4y" path="res://Enemigos/texturas/IshmaelBossSecond1.png" id="11_uhw13"]
+[ext_resource type="Texture2D" uid="uid://cbm21xt1hsdyw" path="res://Enemigos/texturas/IshmaelBossSecond2.png" id="12_psn11"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hnvpr"]
 animations = [{
@@ -31,13 +36,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y2g7u")
+"texture": ExtResource("9_uhw13")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_8ji5k")
+"texture": ExtResource("10_psn11")
 }],
 "loop": true,
 "name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_uhw13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_psn11")
+}],
+"loop": true,
+"name": &"walk2",
 "speed": 5.0
 }]
 
@@ -55,12 +71,15 @@ height = 372.0
 
 [node name="ishmael" type="CharacterBody2D" unique_id=420826719]
 script = ExtResource("1_bh5i7")
+bubble_scene = ExtResource("2_ms41s")
+spear_scene = ExtResource("3_ii5pf")
+exp_orb_scene = ExtResource("4_uhw13")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=207355999]
-position = Vector2(-3.0517578e-05, 1)
-scale = Vector2(0.5620117, 0.5869141)
+position = Vector2(9.536743e-07, -1)
+scale = Vector2(1.31, 1.334)
 sprite_frames = SubResource("SpriteFrames_hnvpr")
-animation = &"walk"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=81085221]
 visible = false
@@ -84,7 +103,16 @@ collision_mask = 4
 position = Vector2(8, 23)
 shape = SubResource("CapsuleShape2D_uhw13")
 
+[node name="TimerBurbujas" type="Timer" parent="." unique_id=1879721952]
+wait_time = 1.5
+autostart = true
+
+[node name="TimerLanzas" type="Timer" parent="." unique_id=358722699]
+wait_time = 3.0
+
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]
+[connection signal="timeout" from="TimerBurbujas" to="." method="_on_timer_burbujas_timeout"]
+[connection signal="timeout" from="TimerLanzas" to="." method="_on_timer_lanzas_timeout"]
 
 [editable path="HurtBox"]
 [editable path="Hitbox"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3guupiawd4h7"
-path="res://.godot/imported/Ishmaelboss2.png-04bc473588e15db4ba66b5cda6ad9fac.ctex"
+uid="uid://bonbraiow00i5"
+path="res://.godot/imported/Ishmaelboss1_resized.png-9ab3cbacbb473c31053279451ffaf222.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemigos/texturas/Ishmaelboss2.png"
-dest_files=["res://.godot/imported/Ishmaelboss2.png-04bc473588e15db4ba66b5cda6ad9fac.ctex"]
+source_file="res://Enemigos/texturas/Ishmaelboss1_resized.png"
+dest_files=["res://.godot/imported/Ishmaelboss1_resized.png-9ab3cbacbb473c31053279451ffaf222.ctex"]
 
 [params]
 

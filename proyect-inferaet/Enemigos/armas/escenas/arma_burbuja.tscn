@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cffglmkpmiytj"]
+
+[ext_resource type="Script" uid="uid://b478txxgjp7cq" path="res://Enemigos/armas/scripts/arma_burbuja.gd" id="1_7b13v"]
+[ext_resource type="Texture2D" uid="uid://dhq53ai8xoyvr" path="res://Enemigos/armas/texturas/burbuja.png" id="2_xpcbf"]
+[ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="3_h7muj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqkks"]
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3axov"]
+radius = 39.012817
+
+[node name="ArmaBurbuja" type="Area2D" unique_id=660776968]
+script = ExtResource("1_7b13v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=603927982]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(0.382, 0.40599996)
+texture = ExtResource("2_xpcbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=404620372]
+shape = SubResource("CircleShape2D_cqkks")
+
+[node name="Hitbox" parent="." unique_id=1096803113 instance=ExtResource("3_h7muj")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_3axov")
+
+[editable path="Hitbox"]
