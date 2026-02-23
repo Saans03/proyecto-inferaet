@@ -22,8 +22,9 @@
 [ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
 [ext_resource type="AudioStream" uid="uid://bcxpjkawntewx" path="res://audio/Lvl1inferaet (2).mp3" id="20_xdpc2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnasr"]
-size = Vector2(584, 2698)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rh4xi"]
+a = Vector2(-408.83966, 9.5711975)
+b = Vector2(-401.92773, 559.3833)
 
 [sub_resource type="Resource" id="Resource_nj5h0"]
 script = ExtResource("7_kfu48")
@@ -43,28 +44,15 @@ scale = Vector2(75.96361, 70.376884)
 texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2116.0
-offset_top = -3591.0
-offset_right = 2198.0
-offset_bottom = 1459.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-22, 0)
+scale = Vector2(2.8935547, 2.8209636)
 texture = ExtResource("3_owe4l")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-top_level = true
-light_mask = 1023
-visibility_layer = 1023
-position = Vector2(-1890, -169)
-shape = SubResource("RectangleShape2D_tnasr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("SegmentShape2D_rh4xi")
 
 [node name="Player" parent="." instance=ExtResource("3_kk1kb")]
 collision_layer = 2
