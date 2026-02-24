@@ -5,8 +5,8 @@ extends armaBase
 func _ready():
 	super._ready()
 	level = 1
-	damage = 3000
-	cooldown = 0.2
+	damage = 25
+	cooldown = 1
 	range = 300
 	
 	hitbox.mode = "instant"
@@ -64,7 +64,7 @@ func _attack(target):
 	
 func aplicarStatsNivel():
 
-	damage += 200
+	damage += 20
 	cooldown *= 0.97
 	
 	hitbox.damage = damage

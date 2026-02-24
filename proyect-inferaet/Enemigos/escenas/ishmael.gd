@@ -4,7 +4,7 @@ extends EnemigoBase
 @export var spear_scene : PackedScene
 
 var phase_two := false
-var max_hp := 7000
+var max_hp := 20000
 
 @onready var bubble_timer = $TimerBurbujas
 @onready var spear_timer = $TimerLanzas
@@ -14,8 +14,8 @@ func _ready():
 	super._ready()
 	
 	hp = max_hp
-	mov_speed = 50
-	exp_drop = 20
+	mov_speed = 40
+	exp_drop = 5000
 	
 	bubble_timer.timeout.connect(_on_timer_burbujas_timeout)
 	spear_timer.timeout.connect(_on_timer_lanzas_timeout)
@@ -126,3 +126,7 @@ func spawn_spear_from_screen():
 func die():
 	super.die()
 	SceneManager.change_screen("res://Escenas/base/win.tscn")
+	
+func handle_flip(direction: Vector2):
+	if direction.x != 0:
+		anim.flip_h = direction.x < 0

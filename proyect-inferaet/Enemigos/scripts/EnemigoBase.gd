@@ -1,15 +1,15 @@
 extends CharacterBody2D
 class_name EnemigoBase
 
+@export var flash_time := 0.1
 @export var exp_drop := 3
 @export var exp_orb_scene : PackedScene
-
 @export var hp : int = 10
 @export var mov_speed = 100
-
 @onready var anim: AnimatedSprite2D = $Sprite
 var player : Player
 var is_dead := false
+var flashing := false
 
 
 func _ready():
@@ -38,13 +38,15 @@ func _physics_process(_delta):
 
 	anim.play("walk")
 
-	if direction.x != 0:
-		anim.flip_h = direction.x > 0
+	handle_flip(direction)
 
 
 func _on_hurt_box_received_damage(damage):
-
+	
+	if is_dead:
+		return
 	hp -= damage
+	apply_damage_flash()
 
 	if hp <= 0:
 		die()
@@ -79,3 +81,26 @@ func drop_exp():
 			randf_range(-20, 20),
 			randf_range(-20, 20)
 		)
+
+func apply_damage_flash():
+	if flashing:
+		return
+		
+	flashing = true
+
+	anim.modulate = Color.RED
+
+	if not is_inside_tree():
+		return
+
+	await get_tree().create_timer(flash_time).timeout
+
+	if not is_inside_tree():
+		return
+
+	anim.modulate = Color.WHITE
+	flashing = false
+	
+func handle_flip(direction: Vector2):
+	if direction.x != 0:
+		anim.flip_h = direction.x > 0

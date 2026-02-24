@@ -9,8 +9,8 @@ var distance_travelled: float = 0.0
 func _ready():
 	super._ready()
 	level = 1
-	damage = 50
-	cooldown = 3
+	damage = 15
+	cooldown = 2
 	range = 1000
 	
 	hitbox.mode = "instant"
@@ -89,7 +89,7 @@ func _end_attack():
 func aplicarStatsNivel():
 
 	damage += 15
-	cooldown *= 0.95
+	cooldown *= 0.8
 	speed += 10
 	
 	hitbox.damage = damage

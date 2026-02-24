@@ -10,8 +10,8 @@ func _ready():
 	super._ready()
 	
 	level = 1
-	damage = 10
-	range = 50 
+	damage = 5
+	range = 100
 	cooldown = 0.0
 
 	visible = true
@@ -58,7 +58,7 @@ func _update_visuals():
 			
 func aplicarStatsNivel():
 
-	damage += 2
+	damage += 3
 	range += 20
 	
 	hitbox.damage = damage

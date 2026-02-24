@@ -54,31 +54,31 @@ height = 302.0
 radius = 64.0
 height = 242.0
 
-[node name="EnemigoGordo" type="CharacterBody2D"]
+[node name="EnemigoGordo" type="CharacterBody2D" unique_id=81445042]
 script = ExtResource("1_d2u6c")
 exp_orb_scene = ExtResource("2_5fqvh")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1826655549]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_kykac")
-animation = &"death"
+animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698809495]
 position = Vector2(-13, -4)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_fdtxd")
 
-[node name="HurtBox" parent="." instance=ExtResource("3_5fqvh")]
+[node name="HurtBox" parent="." unique_id=175522791 instance=ExtResource("3_5fqvh")]
 collision_layer = 8
 collision_mask = 8
 HurtBoxType = 2
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1705401529]
 position = Vector2(-12, -2)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_d2u6c")
 
-[node name="Hitbox" parent="." instance=ExtResource("4_yevpt")]
+[node name="Hitbox" parent="." unique_id=1692416946 instance=ExtResource("4_yevpt")]
 collision_layer = 4
 collision_mask = 4
 damage = 50

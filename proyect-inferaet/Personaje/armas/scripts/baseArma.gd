@@ -30,9 +30,9 @@ func attack_loop():
 			var target = _find_target()
 			if target:
 				await _attack(target)
+				await get_tree().create_timer(cooldown).timeout
 
-		if get_tree() != null:
-			await get_tree().process_frame
+		await get_tree().process_frame
 
 func level_up():
 	if level >= max_level:

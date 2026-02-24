@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cug60214p43vf"]
+[gd_scene format=3 uid="uid://cug60214p43vf"]
 
 [ext_resource type="Script" uid="uid://bcf02xka1u6cr" path="res://Enemigos/escenas/ishmael.gd" id="1_bh5i7"]
 [ext_resource type="PackedScene" uid="uid://bv873rkgvdf5f" path="res://Utilidad/escenas/hurtbox.tscn" id="1_m6b71"]
@@ -69,31 +69,31 @@ height = 404.0
 radius = 171.0
 height = 372.0
 
-[node name="ishmael" type="CharacterBody2D"]
+[node name="ishmael" type="CharacterBody2D" unique_id=1853474590]
 script = ExtResource("1_bh5i7")
 bubble_scene = ExtResource("2_ms41s")
 spear_scene = ExtResource("3_ii5pf")
 exp_orb_scene = ExtResource("4_uhw13")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=796391071]
 position = Vector2(9.536743e-07, -1)
 scale = Vector2(1.31, 1.334)
 sprite_frames = SubResource("SpriteFrames_hnvpr")
 animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347727182]
 position = Vector2(42, 33)
 shape = SubResource("CapsuleShape2D_jdnya")
 
-[node name="HurtBox" parent="." instance=ExtResource("1_m6b71")]
+[node name="HurtBox" parent="." unique_id=1909771545 instance=ExtResource("1_m6b71")]
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1705401529]
 position = Vector2(20, 18)
 shape = SubResource("CapsuleShape2D_ii5pf")
 
-[node name="Hitbox" parent="." instance=ExtResource("2_febkc")]
+[node name="Hitbox" parent="." unique_id=774614657 instance=ExtResource("2_febkc")]
 collision_layer = 4
 collision_mask = 4
 
@@ -101,11 +101,11 @@ collision_mask = 4
 position = Vector2(8, 23)
 shape = SubResource("CapsuleShape2D_uhw13")
 
-[node name="TimerBurbujas" type="Timer" parent="."]
+[node name="TimerBurbujas" type="Timer" parent="." unique_id=777801374]
 wait_time = 1.5
 autostart = true
 
-[node name="TimerLanzas" type="Timer" parent="."]
+[node name="TimerLanzas" type="Timer" parent="." unique_id=177459922]
 wait_time = 3.0
 
 [connection signal="received_damage" from="HurtBox" to="." method="_on_hurt_box_received_damage"]

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bcxpjkawntewx"
-path="res://.godot/imported/Lvl1inferaet (2).mp3-552f9927292293192d70fc105d18063a.mp3str"
+path="res://.godot/imported/Lvl1inferaet (2).mp3-ec4d096554c83e93f990ca100663090b.mp3str"
 
 [deps]
 
-source_file="res://Audio/Lvl1inferaet (2).mp3"
-dest_files=["res://.godot/imported/Lvl1inferaet (2).mp3-552f9927292293192d70fc105d18063a.mp3str"]
+source_file="res://audio/Lvl1inferaet (2).mp3"
+dest_files=["res://.godot/imported/Lvl1inferaet (2).mp3-ec4d096554c83e93f990ca100663090b.mp3str"]
 
 [params]
 

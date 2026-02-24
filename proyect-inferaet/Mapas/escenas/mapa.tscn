@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
 [ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="6_owe4l"]
 [ext_resource type="Texture2D" uid="uid://bxiya2k75kfbr" path="res://Mapas/texturas/fondomapa.png" id="6_rh4xi"]
+[ext_resource type="PackedScene" uid="uid://cuj3vndxu71ax" path="res://Enemigos/escenas/enemigo_gordo.tscn" id="7_2ciuj"]
 [ext_resource type="PackedScene" uid="uid://dsw0k8actsled" path="res://Personaje/armas/escenas/arma_aura.tscn" id="7_7ie5b"]
+[ext_resource type="PackedScene" uid="uid://co2tejpdi45oj" path="res://Enemigos/escenas/EnemigoEsqueletoNegro.tscn" id="7_gjed4"]
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
 [ext_resource type="PackedScene" uid="uid://cea0785yyx1da" path="res://Personaje/armas/escenas/armaNudillo.tscn" id="7_rh4xi"]
 [ext_resource type="PackedScene" uid="uid://ckimt4mnjqofa" path="res://Personaje/armas/escenas/arma_lanza.tscn" id="7_xdpc2"]
@@ -16,69 +18,140 @@
 [ext_resource type="Script" uid="uid://c4gynbcp1lmti" path="res://Personaje/scripts/healthBar.gd" id="11_rh4xi"]
 [ext_resource type="Texture2D" uid="uid://dnxrx3dnub82u" path="res://Mapas/texturas/barraexperiencia.png" id="11_xdpc2"]
 [ext_resource type="Script" uid="uid://74chaveq1xpc" path="res://Mapas/escenas/expbar.gd" id="12_hvhng"]
+[ext_resource type="Script" uid="uid://cgbkt2ernclb5" path="res://Personaje/stats/stats_personaje.gd" id="13_2ciuj"]
 [ext_resource type="Script" uid="uid://6ct3dbr3vgxn" path="res://Mapas/escenas/margin_container.gd" id="14_7ie5b"]
 [ext_resource type="Texture2D" uid="uid://bme37myc5gw8p" path="res://Mapas/texturas/barravida (1).png" id="14_kfu48"]
 [ext_resource type="Texture2D" uid="uid://ca8h6l5v4unw0" path="res://Mapas/texturas/barravida (2).png" id="14_nj5h0"]
 [ext_resource type="FontFile" uid="uid://c2xecdeg48yfe" path="res://font/Cinzel-Black.otf" id="17_kfu48"]
 [ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
-[ext_resource type="AudioStream" uid="uid://bcxpjkawntewx" path="res://Audio/Lvl1inferaet (2).mp3" id="20_xdpc2"]
+[ext_resource type="AudioStream" uid="uid://bcxpjkawntewx" path="res://audio/Lvl1inferaet (2).mp3" id="20_xdpc2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh4xi"]
-size = Vector2(813.0646, 586.5644)
-
-[sub_resource type="Resource" id="Resource_owe4l"]
+[sub_resource type="Resource" id="Resource_q11tn"]
 script = ExtResource("7_kfu48")
-time_start = 1
 time_end = 60
 enemy_scene = ExtResource("6_owe4l")
-enemy_num = 20
-enemy_spawn_delay = 2
+enemy_num = 7
+enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
-[sub_resource type="Resource" id="Resource_2ciuj"]
+[sub_resource type="Resource" id="Resource_5h43c"]
 script = ExtResource("7_kfu48")
 time_start = 60
-time_end = 61
+time_end = 120
+enemy_scene = ExtResource("7_gjed4")
+enemy_num = 5
+enemy_spawn_delay = 3
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_b1dxl"]
+script = ExtResource("7_kfu48")
+time_start = 120
+time_end = 180
+enemy_scene = ExtResource("7_2ciuj")
+enemy_num = 3
+enemy_spawn_delay = 3
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_itce7"]
+script = ExtResource("7_kfu48")
+time_start = 180
+time_end = 240
+enemy_scene = ExtResource("6_owe4l")
+enemy_num = 10
+enemy_spawn_delay = 3
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_0sdtd"]
+script = ExtResource("7_kfu48")
+time_start = 180
+time_end = 240
+enemy_scene = ExtResource("7_gjed4")
+enemy_num = 5
+enemy_spawn_delay = 3
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_by4dp"]
+script = ExtResource("7_kfu48")
+time_start = 240
+time_end = 300
+enemy_scene = ExtResource("7_2ciuj")
+enemy_num = 7
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_o5qf6"]
+script = ExtResource("7_kfu48")
+time_start = 300
+time_end = 301
 enemy_scene = ExtResource("10_7ie5b")
 enemy_num = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
-[node name="Mapa" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ciuj"]
+size = Vector2(15437.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnasr"]
+size = Vector2(70.25, 3792.25)
+
+[sub_resource type="Resource" id="Resource_tnasr"]
+script = ExtResource("13_2ciuj")
+speed = 450.0
+metadata/_custom_type_script = "uid://cgbkt2ernclb5"
+
+[node name="Mapa" type="Node2D" unique_id=42427751]
 script = ExtResource("1_1all6")
 
-[node name="Fondo" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="." unique_id=438313043]
 texture_repeat = 2
 position = Vector2(279.99902, 1757)
 scale = Vector2(75.96361, 70.376884)
 texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205962596]
 position = Vector2(-192.99998, -1869)
 scale = Vector2(18.954216, 6.6722817)
 texture = ExtResource("6_rh4xi")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
-disable_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(-0.13188457, 283.2822)
-scale = Vector2(0.9999999, 1)
-shape = SubResource("RectangleShape2D_rh4xi")
-
-[node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
+[node name="EnemySpawner" parent="." unique_id=1151248605 instance=ExtResource("6_f5350")]
 position = Vector2(7.6293945e-06, 0)
 scale = Vector2(0.99999994, 1)
-spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_owe4l"), SubResource("Resource_2ciuj")])
+spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_q11tn"), SubResource("Resource_5h43c"), SubResource("Resource_b1dxl"), SubResource("Resource_itce7"), SubResource("Resource_0sdtd"), SubResource("Resource_by4dp"), SubResource("Resource_o5qf6")])
 
-[node name="Player" parent="." instance=ExtResource("3_kk1kb")]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1741621589]
+collision_layer = 14
+collision_mask = 14
+
+[node name="Abajo" type="CollisionShape2D" parent="StaticBody2D" unique_id=2107023386]
+position = Vector2(-203.5, 1930)
+shape = SubResource("RectangleShape2D_2ciuj")
+
+[node name="Arriba" type="CollisionShape2D" parent="StaticBody2D" unique_id=1384421231]
+position = Vector2(-219, -1838)
+shape = SubResource("RectangleShape2D_2ciuj")
+
+[node name="Izquierda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1676203256]
+position = Vector2(-7956.875, 63.75)
+shape = SubResource("RectangleShape2D_tnasr")
+
+[node name="Derecha" type="CollisionShape2D" parent="StaticBody2D" unique_id=2008282455]
+position = Vector2(7525, 52.125)
+shape = SubResource("RectangleShape2D_tnasr")
+
+[node name="Player" parent="." unique_id=584031766 instance=ExtResource("3_kk1kb")]
 nudillo_scene = ExtResource("7_rh4xi")
 lanza_scene = ExtResource("7_xdpc2")
 aura_scene = ExtResource("7_7ie5b")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" index="0"]
+[node name="Camera2D" parent="Player" index="1" unique_id=1017267178]
+limit_left = -7915
+limit_top = -1938
+limit_right = 7512
+limit_bottom = 1921
 
-[node name="MenuPausa" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_iywlr")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" index="0" unique_id=1929853495]
+
+[node name="MenuPausa" parent="Player/Camera2D/CanvasLayer" unique_id=803140035 instance=ExtResource("4_iywlr")]
 
 [node name="MarginContainer" parent="Player/Camera2D/CanvasLayer/MenuPausa" index="0"]
 layout_mode = 1
@@ -94,16 +167,19 @@ offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+[node name="StatsComponent" parent="Player" index="3" unique_id=540426919]
+stats_template = SubResource("Resource_tnasr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=1228971859]
 stream = ExtResource("20_xdpc2")
 volume_db = -65.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="exp" type="CanvasLayer" parent="."]
+[node name="exp" type="CanvasLayer" parent="." unique_id=1259214059]
 
-[node name="MarginContainer" type="MarginContainer" parent="exp"]
+[node name="MarginContainer" type="MarginContainer" parent="exp" unique_id=1017270778]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -111,11 +187,11 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Control" type="Control" parent="exp/MarginContainer"]
+[node name="Control" type="Control" parent="exp/MarginContainer" unique_id=727357111]
 layout_direction = 3
 layout_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/MarginContainer/Control" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/MarginContainer/Control" unique_id=1391125265 node_paths=PackedStringArray("player")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -130,7 +206,7 @@ texture_progress = ExtResource("11_7ie5b")
 script = ExtResource("12_hvhng")
 player = NodePath("../../../../Player")
 
-[node name="ProgressBar" type="ProgressBar" parent="exp/MarginContainer/Control/TextureProgressBar"]
+[node name="ProgressBar" type="ProgressBar" parent="exp/MarginContainer/Control/TextureProgressBar" unique_id=1088836333]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -138,9 +214,9 @@ offset_bottom = 4.0
 grow_horizontal = 2
 show_percentage = false
 
-[node name="vida" type="CanvasLayer" parent="."]
+[node name="vida" type="CanvasLayer" parent="." unique_id=1979944472]
 
-[node name="MarginContainer" type="MarginContainer" parent="vida"]
+[node name="MarginContainer" type="MarginContainer" parent="vida" unique_id=1642452899]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -154,7 +230,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("14_7ie5b")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="vida/MarginContainer" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="vida/MarginContainer" unique_id=185597933 node_paths=PackedStringArray("player")]
 layout_mode = 2
 max_value = 80.0
 texture_under = ExtResource("14_nj5h0")
@@ -162,14 +238,14 @@ texture_progress = ExtResource("14_kfu48")
 script = ExtResource("11_rh4xi")
 player = NodePath("../../../Player")
 
-[node name="ProgressBar" type="ProgressBar" parent="vida/MarginContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="vida/MarginContainer" unique_id=1368636449]
 visible = false
 layout_mode = 2
 value = 100.0
 
-[node name="timer" type="CanvasLayer" parent="."]
+[node name="timer" type="CanvasLayer" parent="." unique_id=2017828865]
 
-[node name="Control" type="Control" parent="timer"]
+[node name="Control" type="Control" parent="timer" unique_id=460130455]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -181,9 +257,9 @@ offset_bottom = 209.0
 grow_horizontal = 2
 script = ExtResource("17_nj5h0")
 
-[node name="Timer" type="Timer" parent="timer/Control"]
+[node name="Timer" type="Timer" parent="timer/Control" unique_id=818583757]
 
-[node name="Label" type="Label" parent="timer/Control"]
+[node name="Label" type="Label" parent="timer/Control" unique_id=1583310634]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
