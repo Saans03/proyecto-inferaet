@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=26 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
 [ext_resource type="PackedScene" uid="uid://cdb65b23ty00f" path="res://Personaje/escenas/player.tscn" id="3_kk1kb"]
 [ext_resource type="PackedScene" uid="uid://c1m1eal8optkg" path="res://Escenas/base/menu_pausa.tscn" id="4_iywlr"]
 [ext_resource type="PackedScene" uid="uid://b4pj7sosf3mp3" path="res://Enemigos/escenas/enemy_spawner.tscn" id="6_f5350"]
+[ext_resource type="PackedScene" uid="uid://bvnmr4lg0hb8j" path="res://Enemigos/escenas/EnemigoEsqueleto.tscn" id="6_owe4l"]
 [ext_resource type="Texture2D" uid="uid://bxiya2k75kfbr" path="res://Mapas/texturas/fondomapa.png" id="6_rh4xi"]
 [ext_resource type="PackedScene" uid="uid://dsw0k8actsled" path="res://Personaje/armas/escenas/arma_aura.tscn" id="7_7ie5b"]
 [ext_resource type="Script" uid="uid://bmwl7s8omfpbj" path="res://Personaje/scripts/spawn_info.gd" id="7_kfu48"]
@@ -22,17 +23,24 @@
 [ext_resource type="Script" uid="uid://cqtdtys1vbdec" path="res://Mapas/escenas/control.gd" id="17_nj5h0"]
 [ext_resource type="AudioStream" uid="uid://bcxpjkawntewx" path="res://Audio/Lvl1inferaet (2).mp3" id="20_xdpc2"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rh4xi"]
-normal = Vector2(0.0059162085, -0.9999825)
-distance = -150.02364
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh4xi"]
+size = Vector2(813.0646, 586.5644)
 
 [sub_resource type="Resource" id="Resource_owe4l"]
 script = ExtResource("7_kfu48")
 time_start = 1
 time_end = 60
-enemy_scene = ExtResource("10_7ie5b")
-enemy_num = 10
+enemy_scene = ExtResource("6_owe4l")
+enemy_num = 20
 enemy_spawn_delay = 2
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
+[sub_resource type="Resource" id="Resource_2ciuj"]
+script = ExtResource("7_kfu48")
+time_start = 60
+time_end = 61
+enemy_scene = ExtResource("10_7ie5b")
+enemy_num = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [node name="Mapa" type="Node2D"]
@@ -54,13 +62,14 @@ texture = ExtResource("6_rh4xi")
 disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(11.132087, 178.94928)
-shape = SubResource("WorldBoundaryShape2D_rh4xi")
+position = Vector2(-0.13188457, 283.2822)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_rh4xi")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
 position = Vector2(7.6293945e-06, 0)
 scale = Vector2(0.99999994, 1)
-spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_owe4l")])
+spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_owe4l"), SubResource("Resource_2ciuj")])
 
 [node name="Player" parent="." instance=ExtResource("3_kk1kb")]
 nudillo_scene = ExtResource("7_rh4xi")
