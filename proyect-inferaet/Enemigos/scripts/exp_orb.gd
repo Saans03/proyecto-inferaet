@@ -5,7 +5,6 @@ var player = null
 
 
 func _ready():
-	print("ORB READY")
 	player = get_tree().get_first_node_in_group("player")
 
 
@@ -24,7 +23,6 @@ func _physics_process(delta):
 func collect():
 
 	if player != null:
-		print("ORB GIVE EXP:", exp_value)
 		player.add_exp(exp_value)
 
 	queue_free()
