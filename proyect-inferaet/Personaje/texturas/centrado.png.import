@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7fp144852ebh"
-path="res://.godot/imported/paso_lateral.png-fd91e7dc4f208f9799346595ed24f187.ctex"
+uid="uid://ci1t7vd2rxgm0"
+path="res://.godot/imported/centrado.png-cbd98790b7b14e763267a79d545cd5c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personaje/texturas/paso_lateral.png"
-dest_files=["res://.godot/imported/paso_lateral.png-fd91e7dc4f208f9799346595ed24f187.ctex"]
+source_file="res://Personaje/texturas/centrado.png"
+dest_files=["res://.godot/imported/centrado.png-cbd98790b7b14e763267a79d545cd5c2.ctex"]
 
 [params]
 

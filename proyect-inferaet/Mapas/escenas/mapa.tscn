@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
@@ -99,60 +99,60 @@ script = ExtResource("13_2ciuj")
 speed = 450.0
 metadata/_custom_type_script = "uid://cgbkt2ernclb5"
 
-[node name="Mapa" type="Node2D"]
+[node name="Mapa" type="Node2D" unique_id=1905870684]
 script = ExtResource("1_1all6")
 
-[node name="Fondo" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="." unique_id=383113669]
 texture_repeat = 2
 position = Vector2(279.99902, 1757)
 scale = Vector2(75.96361, 70.376884)
 texture = ExtResource("2_xdpc2")
 region_rect = Rect2(0, 0, 4000, 4000)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355568555]
 position = Vector2(-192.99998, -1869)
 scale = Vector2(18.954216, 6.6722817)
 texture = ExtResource("6_rh4xi")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
+[node name="EnemySpawner" parent="." unique_id=557982159 instance=ExtResource("6_f5350")]
 position = Vector2(7.6293945e-06, 0)
 scale = Vector2(0.99999994, 1)
 spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_q11tn"), SubResource("Resource_5h43c"), SubResource("Resource_b1dxl"), SubResource("Resource_itce7"), SubResource("Resource_0sdtd"), SubResource("Resource_by4dp"), SubResource("Resource_o5qf6")])
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=729518407]
 collision_layer = 14
 collision_mask = 14
 
-[node name="Abajo" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Abajo" type="CollisionShape2D" parent="StaticBody2D" unique_id=1637053537]
 position = Vector2(-203.5, 1930)
 shape = SubResource("RectangleShape2D_2ciuj")
 
-[node name="Arriba" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Arriba" type="CollisionShape2D" parent="StaticBody2D" unique_id=239057618]
 position = Vector2(-219, -1838)
 shape = SubResource("RectangleShape2D_2ciuj")
 
-[node name="Izquierda" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Izquierda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1559899658]
 position = Vector2(-7956.875, 63.75)
 shape = SubResource("RectangleShape2D_tnasr")
 
-[node name="Derecha" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Derecha" type="CollisionShape2D" parent="StaticBody2D" unique_id=1461297572]
 position = Vector2(7525, 52.125)
 shape = SubResource("RectangleShape2D_tnasr")
 
-[node name="Player" parent="." instance=ExtResource("3_kk1kb")]
+[node name="Player" parent="." unique_id=1797125950 instance=ExtResource("3_kk1kb")]
 nudillo_scene = ExtResource("7_rh4xi")
 lanza_scene = ExtResource("7_xdpc2")
 aura_scene = ExtResource("7_7ie5b")
 
-[node name="Camera2D" parent="Player" index="1"]
+[node name="Camera2D" parent="Player" index="1" unique_id=217759001]
 limit_left = -7915
 limit_top = -1938
 limit_right = 7512
 limit_bottom = 1921
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" index="0"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" index="0" unique_id=1931463795]
 
-[node name="MenuPausa" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("4_iywlr")]
+[node name="MenuPausa" parent="Player/Camera2D/CanvasLayer" unique_id=1986188014 instance=ExtResource("4_iywlr")]
 
 [node name="MarginContainer" parent="Player/Camera2D/CanvasLayer/MenuPausa" index="0"]
 layout_mode = 1
@@ -168,19 +168,19 @@ offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StatsComponent" parent="Player" index="3"]
+[node name="StatsComponent" parent="Player" index="3" unique_id=1303156177]
 stats_template = SubResource("Resource_tnasr")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=660963547]
 stream = ExtResource("20_xdpc2")
 volume_db = -65.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="exp" type="CanvasLayer" parent="."]
+[node name="exp" type="CanvasLayer" parent="." unique_id=157698754]
 
-[node name="MarginContainer" type="MarginContainer" parent="exp"]
+[node name="MarginContainer" type="MarginContainer" parent="exp" unique_id=1565902891]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -188,11 +188,11 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Control" type="Control" parent="exp/MarginContainer"]
+[node name="Control" type="Control" parent="exp/MarginContainer" unique_id=1875874269]
 layout_direction = 3
 layout_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/MarginContainer/Control" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="exp/MarginContainer/Control" unique_id=856988235 node_paths=PackedStringArray("player")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -207,7 +207,7 @@ texture_progress = ExtResource("11_7ie5b")
 script = ExtResource("12_hvhng")
 player = NodePath("../../../../Player")
 
-[node name="ProgressBar" type="ProgressBar" parent="exp/MarginContainer/Control/TextureProgressBar"]
+[node name="ProgressBar" type="ProgressBar" parent="exp/MarginContainer/Control/TextureProgressBar" unique_id=1402807218]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -215,9 +215,9 @@ offset_bottom = 4.0
 grow_horizontal = 2
 show_percentage = false
 
-[node name="vida" type="CanvasLayer" parent="."]
+[node name="vida" type="CanvasLayer" parent="." unique_id=354703123]
 
-[node name="MarginContainer" type="MarginContainer" parent="vida"]
+[node name="MarginContainer" type="MarginContainer" parent="vida" unique_id=1803316002]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -231,7 +231,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("14_7ie5b")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="vida/MarginContainer" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="vida/MarginContainer" unique_id=93228629 node_paths=PackedStringArray("player")]
 layout_mode = 2
 max_value = 80.0
 texture_under = ExtResource("14_nj5h0")
@@ -239,14 +239,14 @@ texture_progress = ExtResource("14_kfu48")
 script = ExtResource("11_rh4xi")
 player = NodePath("../../../Player")
 
-[node name="ProgressBar" type="ProgressBar" parent="vida/MarginContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="vida/MarginContainer" unique_id=1999334504]
 visible = false
 layout_mode = 2
 value = 100.0
 
-[node name="timer" type="CanvasLayer" parent="."]
+[node name="timer" type="CanvasLayer" parent="." unique_id=1785726454]
 
-[node name="Control" type="Control" parent="timer"]
+[node name="Control" type="Control" parent="timer" unique_id=1597660251]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -258,9 +258,9 @@ offset_bottom = 209.0
 grow_horizontal = 2
 script = ExtResource("17_nj5h0")
 
-[node name="Timer" type="Timer" parent="timer/Control"]
+[node name="Timer" type="Timer" parent="timer/Control" unique_id=1332348499]
 
-[node name="Label" type="Label" parent="timer/Control"]
+[node name="Label" type="Label" parent="timer/Control" unique_id=927432280]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
