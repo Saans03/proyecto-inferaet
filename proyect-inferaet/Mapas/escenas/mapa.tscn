@@ -85,6 +85,7 @@ time_start = 300
 time_end = 301
 enemy_scene = ExtResource("10_7ie5b")
 enemy_num = 1
+enemy_spawn_delay = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ciuj"]
