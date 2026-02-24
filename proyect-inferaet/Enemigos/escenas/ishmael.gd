@@ -121,3 +121,8 @@ func spawn_spear_from_screen():
 
 	var dir = spawn_pos.direction_to(player.global_position)
 	spear.set_direction(dir)
+
+
+func die():
+	super.die()
+	SceneManager.change_screen("res://Escenas/base/win.tscn")

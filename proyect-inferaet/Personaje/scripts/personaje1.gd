@@ -66,7 +66,7 @@ func add_exp(amount:int):
 
 		current_exp -= exp_to_next
 		level += 1
-		exp_to_next = int(exp_to_next * 1.4)
+		exp_to_next = int(exp_to_next * 2)
 		
 		level_up.emit()
 

@@ -10,8 +10,8 @@ func _ready():
 	super._ready()
 	
 	level = 1
-	damage = 100
-	range = 500 
+	damage = 10
+	range = 50 
 	cooldown = 0.0
 
 	visible = true
@@ -49,7 +49,7 @@ func _update_visuals():
 	if sprite and sprite.texture:
 
 		var texture_size = sprite.texture.get_size().x
-		var desired_diameter = range * 2.0
+		var desired_diameter = range * 1.8
 
 		if texture_size > 0:
 			var scale_factor = desired_diameter / texture_size
@@ -58,7 +58,7 @@ func _update_visuals():
 			
 func aplicarStatsNivel():
 
-	damage += 20
+	damage += 2
 	range += 20
 	
 	hitbox.damage = damage

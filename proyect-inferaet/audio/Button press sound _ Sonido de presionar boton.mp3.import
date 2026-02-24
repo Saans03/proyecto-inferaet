@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bn4mollg7eqsg"
-path="res://.godot/imported/Button press sound _ Sonido de presionar boton.mp3-1dbefb3912fdd5bb658f3b3e038bf015.mp3str"
+path="res://.godot/imported/Button press sound _ Sonido de presionar boton.mp3-993acace8b11ef4433a32afe58556414.mp3str"
 
 [deps]
 
-source_file="res://audio/Button press sound _ Sonido de presionar boton.mp3"
-dest_files=["res://.godot/imported/Button press sound _ Sonido de presionar boton.mp3-1dbefb3912fdd5bb658f3b3e038bf015.mp3str"]
+source_file="res://Audio/Button press sound _ Sonido de presionar boton.mp3"
+dest_files=["res://.godot/imported/Button press sound _ Sonido de presionar boton.mp3-993acace8b11ef4433a32afe58556414.mp3str"]
 
 [params]
 

@@ -14,24 +14,24 @@ func update_buttons():
 	
 	if w.has("nudillo"):
 		var nud = w["nudillo"]
-		$Panel/ButtonNudillo.text = "Nudillo Lv." + str(nud.level)
-		$Panel/ButtonNudillo.disabled = nud.level >= nud.max_level
+		$VBoxContainer/ButtonNudillo.text = "Nudillo Lv." + str(nud.level)
+		$VBoxContainer/ButtonNudillo.disabled = nud.level >= nud.max_level
 	else:
-		$Panel/ButtonNudillo.text = "Desbloquear Nudillo"
+		$VBoxContainer/ButtonNudillo.text = "Desbloquear Nudillo"
 	
 	if w.has("lanza"):
 		var lan = w["lanza"]
-		$Panel/ButtonLanza.text = "Lanza Lv." + str(lan.level)
-		$Panel/ButtonLanza.disabled = lan.level >= lan.max_level
+		$VBoxContainer/ButtonLanza.text = "Lanza Lv." + str(lan.level)
+		$VBoxContainer/ButtonLanza.disabled = lan.level >= lan.max_level
 	else:
-		$Panel/ButtonLanza.text = "Desbloquear Lanza"
+		$VBoxContainer/ButtonLanza.text = "Desbloquear Lanza"
 	
 	if w.has("aura"):
 		var au = w["aura"]
-		$Panel/ButtonAura.text = "Aura Lv." + str(au.level)
-		$Panel/ButtonAura.disabled = au.level >= au.max_level
+		$VBoxContainer/ButtonAura.text = "Aura Lv." + str(au.level)
+		$VBoxContainer/ButtonAura.disabled = au.level >= au.max_level
 	else:
-		$Panel/ButtonAura.text = "Desbloquear Aura"
+		$VBoxContainer/ButtonAura.text = "Desbloquear Aura"
 
 
 func _on_button_nudillo_pressed() -> void:

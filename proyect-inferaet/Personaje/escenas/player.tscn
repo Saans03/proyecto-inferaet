@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cdb65b23ty00f"]
+[gd_scene load_steps=11 format=3 uid="uid://cdb65b23ty00f"]
 
 [ext_resource type="Script" uid="uid://dktpc1f8h8mp7" path="res://Personaje/scripts/personaje1.gd" id="1_opc0b"]
 [ext_resource type="Texture2D" uid="uid://gxn5jk4qe6b7" path="res://Personaje/texturas/personajeprincipal2.png" id="2_qde0v"]
@@ -39,35 +39,35 @@ metadata/_custom_type_script = "uid://cgbkt2ernclb5"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vh8d"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1430360668 groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_opc0b")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1054360349]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-13, 0.99999994)
 scale = Vector2(0.19351631, 0.20215856)
 sprite_frames = SubResource("SpriteFrames_c46bc")
 animation = &"walk"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=143698284]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=707575199]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.2737368e-13, 0)
 scale = Vector2(0.77161294, 1.207332)
 shape = SubResource("CapsuleShape2D_eld76")
 
-[node name="StatsComponent" type="Node2D" parent="." unique_id=2090331891]
+[node name="StatsComponent" type="Node2D" parent="."]
 script = ExtResource("3_acl8h")
 stats_template = SubResource("Resource_7sfl7")
 
-[node name="HurtBox" parent="." unique_id=484382253 instance=ExtResource("5_7sfl7")]
+[node name="HurtBox" parent="." instance=ExtResource("5_7sfl7")]
 collision_layer = 4
 collision_mask = 4
 HurtBoxType = 2
 
-[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1705401529]
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(-2.861023e-06, 0)
 scale = Vector2(1.1284245, 1.6764096)
 shape = SubResource("CapsuleShape2D_5vh8d")
