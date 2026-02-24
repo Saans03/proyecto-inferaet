@@ -3,7 +3,7 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var label: Label = $Label
 
-var total_seconds: int = 300  # 5 minutos
+var total_seconds: int = 300 
 
 func _ready():
 	custom_minimum_size = Vector2(200, 60)
@@ -16,7 +16,7 @@ func _ready():
 	timer.one_shot = false
 	timer.timeout.connect(_on_timer_timeout)
 	
-	_update_label()  # Mostrar 05:00 antes de empezar
+	_update_label()
 	timer.start()
 	
 	get_viewport().size_changed.connect(_update_position)
@@ -28,7 +28,8 @@ func _on_timer_timeout():
 		total_seconds -= 1
 		_update_label()
 	else:
-		timer.stop()
+		timer.stop()         
+		_update_label()        
 		print("Tiempo terminado")
 
 
@@ -37,10 +38,8 @@ func _update_label():
 	var seconds: int = total_seconds % 60
 	label.text = "%02d:%02d" % [minutes, seconds]
 
-
 func _update_position():
 	var mode = DisplayServer.window_get_mode()
-	
 	if mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		offset_top = 15
 	else:
