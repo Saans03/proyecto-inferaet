@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dn3y4eppc4nk"]
+[gd_scene load_steps=37 format=3 uid="uid://dn3y4eppc4nk"]
 
 [ext_resource type="Script" uid="uid://deggp6s0jt6o3" path="res://Mapas/scripts/mapa.gd" id="1_1all6"]
 [ext_resource type="Texture2D" uid="uid://cp5b7ghicfcun" path="res://Mapas/texturas/niebla.png" id="2_xdpc2"]
@@ -88,6 +88,15 @@ enemy_num = 1
 enemy_spawn_delay = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
+[sub_resource type="Resource" id="Resource_gjed4"]
+script = ExtResource("7_kfu48")
+time_start = 300
+time_end = 9999
+enemy_scene = ExtResource("6_owe4l")
+enemy_num = 3
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ciuj"]
 size = Vector2(15437.5, 18)
 
@@ -117,7 +126,7 @@ texture = ExtResource("6_rh4xi")
 [node name="EnemySpawner" parent="." instance=ExtResource("6_f5350")]
 position = Vector2(7.6293945e-06, 0)
 scale = Vector2(0.99999994, 1)
-spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_q11tn"), SubResource("Resource_5h43c"), SubResource("Resource_b1dxl"), SubResource("Resource_itce7"), SubResource("Resource_0sdtd"), SubResource("Resource_by4dp"), SubResource("Resource_o5qf6")])
+spawns = Array[ExtResource("7_kfu48")]([SubResource("Resource_q11tn"), SubResource("Resource_5h43c"), SubResource("Resource_b1dxl"), SubResource("Resource_itce7"), SubResource("Resource_0sdtd"), SubResource("Resource_by4dp"), SubResource("Resource_o5qf6"), SubResource("Resource_gjed4")])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 14
