@@ -4,7 +4,7 @@ extends EnemigoBase
 @export var spear_scene : PackedScene
 
 var phase_two := false
-var max_hp := 20000
+var max_hp := 10000
 
 @onready var bubble_timer = $TimerBurbujas
 @onready var spear_timer = $TimerLanzas

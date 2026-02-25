@@ -2,9 +2,9 @@ extends EnemigoBase
 
 func _ready():
 	super._ready()
-	hp = 3000
+	hp = 1000
 	mov_speed = 20
-	exp_drop = 100
+	exp_drop = 300
 
 
 func handle_flip(direction: Vector2):

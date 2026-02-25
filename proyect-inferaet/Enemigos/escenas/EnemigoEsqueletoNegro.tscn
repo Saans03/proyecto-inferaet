@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://co2tejpdi45oj"]
+[gd_scene load_steps=15 format=3 uid="uid://co2tejpdi45oj"]
 
 [ext_resource type="Texture2D" uid="uid://cpxfhlgpdpw62" path="res://Enemigos/texturas/xplosion1.png" id="1_2x0ow"]
 [ext_resource type="Texture2D" uid="uid://47klkjkntst" path="res://Enemigos/texturas/esqueletoNegro2.png" id="1_6oh7e"]
@@ -51,32 +51,32 @@ size = Vector2(84, 93)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uru5x"]
 size = Vector2(88, 97)
 
-[node name="EsqueletoNegro" type="CharacterBody2D" unique_id=2057620682]
+[node name="EsqueletoNegro" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_tbkds")
 exp_orb_scene = ExtResource("2_og0sm")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=184894409]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -34)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mf43w")
 animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632864918]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.125)
 shape = SubResource("RectangleShape2D_xnbgc")
 
-[node name="HurtBox" parent="." unique_id=1792768975 instance=ExtResource("8_887kj")]
+[node name="HurtBox" parent="." instance=ExtResource("8_887kj")]
 collision_layer = 8
 collision_mask = 8
 HurtBoxType = 2
 
-[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=1705401529]
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(-8, -5.5)
 shape = SubResource("RectangleShape2D_2x0ow")
 
-[node name="Hitbox" parent="." unique_id=1258322902 instance=ExtResource("7_cg48f")]
+[node name="Hitbox" parent="." instance=ExtResource("7_cg48f")]
 collision_layer = 4
 collision_mask = 4
 
