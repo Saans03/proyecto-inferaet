@@ -1,32 +1,34 @@
-[gd_scene format=3 uid="uid://ecsxcpo25rqp"]
+[gd_scene load_steps=6 format=3 uid="uid://ecsxcpo25rqp"]
 
 [ext_resource type="Script" uid="uid://dd8ectrv3accl" path="res://Enemigos/armas/scripts/arma_lanza_boss.gd" id="1_sbbrx"]
 [ext_resource type="Texture2D" uid="uid://b0i00gdjcbc6r" path="res://Enemigos/armas/texturas/arponMejorado.png" id="2_1gywk"]
 [ext_resource type="PackedScene" uid="uid://03mipipnl614" path="res://Utilidad/escenas/hitbox.tscn" id="3_fi3ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lct5g"]
-size = Vector2(642, 25)
+size = Vector2(304, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3h7nh"]
-size = Vector2(637, 34)
+size = Vector2(319, 34)
 
-[node name="ArmaLanzaBoss" type="Area2D" unique_id=1583660232]
+[node name="ArmaLanzaBoss" type="Area2D"]
 script = ExtResource("1_sbbrx")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=47333754]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.529953e-06, 1.9073486e-06)
+scale = Vector2(0.4911242, 0.44444445)
 texture = ExtResource("2_1gywk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975106801]
-position = Vector2(-8, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lct5g")
 
-[node name="Hitbox" parent="." unique_id=1931225431 instance=ExtResource("3_fi3ed")]
+[node name="Hitbox" parent="." instance=ExtResource("3_fi3ed")]
 collision_layer = 4
 collision_mask = 4
 damage = 10
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(1.5, -1)
+position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_3h7nh")
 
 [editable path="Hitbox"]

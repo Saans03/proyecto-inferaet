@@ -14,7 +14,8 @@ func _ready():
 	
 	timer.wait_time = 1.0
 	timer.one_shot = false
-	timer.timeout.connect(_on_timer_timeout)
+	if not timer.timeout.is_connected(_on_timer_timeout):
+		timer.timeout.connect(_on_timer_timeout)
 	
 	_update_label()
 	timer.start()

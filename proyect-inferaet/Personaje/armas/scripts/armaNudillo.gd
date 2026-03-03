@@ -1,4 +1,5 @@
 extends armaBase
+
 @export var slash_distance := 80.0
 @export var attack_duration := 0.25
 
@@ -9,18 +10,20 @@ func _ready():
 	cooldown = 1
 	range = 300
 	
-	hitbox.mode = "instant"
+	if hitbox:
+		hitbox.mode = "instant"
+
 
 func _find_target():
 	var player: Player = get_parent()
-	if player == null:
+	if player == null or not is_instance_valid(player):
 		return null
 
 	var best = null
 	var best_dist = INF
 
 	for e in EnemyManager.enemies:
-		if e == null:
+		if e == null or not is_instance_valid(e):
 			continue
 
 		var d = player.global_position.distance_to(e.global_position)
@@ -30,41 +33,74 @@ func _find_target():
 
 	return best
 
+
 func _attack(target):
+
 	var player: Player = get_parent()
-	if player == null:
+	if player == null or not is_instance_valid(player):
 		return  
+
+	var tree := get_tree()
+	if tree == null:
+		return
 
 	attacking = true
 	attack_active = true
 	visible = true
-	hitbox.enable_hitbox()
-	hitbox.damage = damage
+
+	if hitbox:
+		hitbox.damage = damage
+		hitbox.enable_hitbox()
 
 	var time := 0.0
 
-	while time < attack_duration:
-		player = get_parent()
-		if player == null or not is_inside_tree():
+	while time < attack_duration and attack_active:
+
+		# Failsafes dentro del loop
+		if not is_inside_tree():
 			break
 
-		var dir = player.facing_direction
+		player = get_parent()
+		if player == null or not is_instance_valid(player):
+			break
+
+		tree = get_tree()
+		if tree == null:
+			break
+
+		var dir = 1
+		if "facing_direction" in player:
+			dir = player.facing_direction
+
 		global_position = player.global_position + Vector2(dir * slash_distance, 0)
-		sprite.flip_h = dir == -1
-		sprite.flip_v = dir == -1
+
+		if sprite:
+			sprite.flip_h = dir == -1
+			sprite.flip_v = false 
 
 		time += get_process_delta_time()
 
-		if get_tree() != null:
-			await get_tree().process_frame
+		await tree.process_frame
 
-	hitbox.disable_hitbox()
-	visible = false
+	_end_attack()
+
+	if tree:
+		await tree.create_timer(cooldown).timeout
+
 	attacking = false
-	
-func aplicarStatsNivel():
 
+
+func _end_attack():
+	visible = false
+	attack_active = false
+	
+	if hitbox:
+		hitbox.disable_hitbox()
+
+
+func aplicarStatsNivel():
 	damage += 20
 	cooldown *= 0.97
 	
-	hitbox.damage = damage
+	if hitbox:
+		hitbox.damage = damage

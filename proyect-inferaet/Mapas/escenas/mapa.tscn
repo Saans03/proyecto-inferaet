@@ -30,8 +30,8 @@
 script = ExtResource("7_kfu48")
 time_end = 60
 enemy_scene = ExtResource("6_owe4l")
-enemy_num = 7
-enemy_spawn_delay = 3
+enemy_num = 20
+enemy_spawn_delay = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [sub_resource type="Resource" id="Resource_5h43c"]
@@ -39,7 +39,7 @@ script = ExtResource("7_kfu48")
 time_start = 60
 time_end = 120
 enemy_scene = ExtResource("7_gjed4")
-enemy_num = 5
+enemy_num = 7
 enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
@@ -48,7 +48,7 @@ script = ExtResource("7_kfu48")
 time_start = 120
 time_end = 180
 enemy_scene = ExtResource("7_2ciuj")
-enemy_num = 3
+enemy_num = 5
 enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
@@ -57,7 +57,7 @@ script = ExtResource("7_kfu48")
 time_start = 180
 time_end = 240
 enemy_scene = ExtResource("6_owe4l")
-enemy_num = 10
+enemy_num = 12
 enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
@@ -66,7 +66,7 @@ script = ExtResource("7_kfu48")
 time_start = 180
 time_end = 240
 enemy_scene = ExtResource("7_gjed4")
-enemy_num = 5
+enemy_num = 7
 enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
@@ -75,17 +75,15 @@ script = ExtResource("7_kfu48")
 time_start = 240
 time_end = 300
 enemy_scene = ExtResource("7_2ciuj")
-enemy_num = 7
+enemy_num = 10
 enemy_spawn_delay = 5
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [sub_resource type="Resource" id="Resource_o5qf6"]
 script = ExtResource("7_kfu48")
-time_start = 300
-time_end = 301
+time_end = 1
 enemy_scene = ExtResource("10_7ie5b")
 enemy_num = 1
-enemy_spawn_delay = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 
 [sub_resource type="Resource" id="Resource_gjed4"]
@@ -93,7 +91,7 @@ script = ExtResource("7_kfu48")
 time_start = 300
 time_end = 9999
 enemy_scene = ExtResource("6_owe4l")
-enemy_num = 3
+enemy_num = 10
 enemy_spawn_delay = 1
 metadata/_custom_type_script = "uid://bmwl7s8omfpbj"
 

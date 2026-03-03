@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cea0785yyx1da"]
+[gd_scene load_steps=5 format=3 uid="uid://cea0785yyx1da"]
 
 [ext_resource type="Script" uid="uid://bndje7u0pvpq0" path="res://Personaje/armas/scripts/armaNudillo.gd" id="1_of6or"]
 [ext_resource type="Texture2D" uid="uid://scv5ftwl54dm" path="res://Personaje/armas/texturas/sonico bom1.png" id="2_8lon8"]
@@ -7,15 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmi2b"]
 size = Vector2(43, 107)
 
-[node name="ArmaNudillos" type="Node2D" unique_id=894738849]
+[node name="ArmaNudillos" type="Node2D"]
 script = ExtResource("1_of6or")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=281746643]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5707964
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_8lon8")
 
-[node name="Hitbox" parent="." unique_id=557865944 instance=ExtResource("2_dmi2b")]
+[node name="Hitbox" parent="." instance=ExtResource("2_dmi2b")]
 collision_layer = 8
 collision_mask = 8
 
@@ -23,6 +23,6 @@ collision_mask = 8
 position = Vector2(-3.5, -0.5)
 shape = SubResource("RectangleShape2D_dmi2b")
 
-[node name="Timer" type="Timer" parent="." unique_id=976675250]
+[node name="Timer" type="Timer" parent="."]
 
 [editable path="Hitbox"]
